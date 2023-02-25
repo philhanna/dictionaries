@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.0.1] - 2023-02-25
+Added Thomas More, Geography, and Science
+
 ## [v1.0.0] - 2023-02-25
-Initial working version
+Initial working version with three samples
 
 ## [v0.1.0] - 2023-02-25
 Added test data from Tolstoy and Shakespeare
@@ -16,7 +19,8 @@ Initial commit
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/dictionaries/compare/v1.0.0..HEAD
+[Unreleased]: https://github.com/philhanna/dictionaries/compare/v1.0.1..HEAD
+[v1.0.1]: https://github.com/philhanna/dictionaries/compare/v1.0.0..v1.0.1
 [v1.0.0]: https://github.com/philhanna/dictionaries/compare/v0.1.0..v1.0.0
 [v0.1.0]: https://github.com/philhanna/dictionaries/compare/v0.0.0..v0.1.0
 [v0.0.0]: https://github.com/philhanna/dictionaries/compare/0595dca..v0.0.0

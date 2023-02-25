@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -56,6 +57,17 @@ func main() {
 		}
 	}
 
+	// Make a list of the keys and sort it in order of count descending.
+	keys := []string{}
+	for k := range wordMap {
+		keys = append(keys, k)
+	}
+	sort.Slice(keys, func(i, j int) bool {
+		iCount := wordMap[keys[i]]
+		jCount := wordMap[keys[j]]
+		return iCount > jCount	
+	})
+
 	// Open the output file
 	fpout, err := os.Create("/tmp/tolstoy.txt")
 	defer fpout.Close()
@@ -65,7 +77,8 @@ func main() {
 	}
 
 	// Write the map
-	for word, count := range wordMap {
+	for _, word := range keys {
+		count := wordMap[word]
 		fmt.Fprintf(fpout, "%s,%d\n", word, count)
 	}
 

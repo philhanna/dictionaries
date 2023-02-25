@@ -8,7 +8,12 @@ import (
 	"strings"
 )
 
-func main() {
+type WordAndCount struct {
+	Word  string
+	Count int
+}
+
+func ParseText(text string, ch chan *WordAndCount) {
 
 	// Create a map of words to their counts
 	wordMap := make(map[string]int)
@@ -17,22 +22,18 @@ func main() {
 	squashMe := []string{"'s", "'t"}
 	deleteMe := []string{"'ll", "'m"}
 	cutMe := []string{"'"}
-	
-	// Form the regular expression
-	re := regexp.MustCompile(`\b[\w']+\b`)
 
-	// Read the whole file as a string
-	text, _ := os.ReadFile("testdata/tolstoy/6157-0.txt")
-	stext := string(text)
+	// Form the regular expression
+	re := regexp.MustCompile(`\b[a-zA-Z']+\b`)
 
 	// Read the text and extract the words
-	for _, word := range re.FindAllString(stext, -1) {
+	for _, word := range re.FindAllString(text, -1) {
 		for _, suffix := range squashMe {
 			if strings.HasSuffix(word, suffix) {
 				word = word[:len(word)-len(suffix)]
 				word = word + suffix[1:]
 			}
-		}		
+		}
 		for _, suffix := range deleteMe {
 			if strings.HasSuffix(word, suffix) {
 				word, _ = strings.CutSuffix(word, suffix)
@@ -65,8 +66,26 @@ func main() {
 	sort.Slice(keys, func(i, j int) bool {
 		iCount := wordMap[keys[i]]
 		jCount := wordMap[keys[j]]
-		return iCount > jCount	
+		return iCount > jCount
 	})
+
+	for word, count := range wordMap {
+		wac := WordAndCount{word, count}
+		ch <- &wac
+	}
+
+	ch <- nil
+}
+
+func main() {
+
+	// Read the whole file as a string
+	text, _ := os.ReadFile("testdata/tolstoy/6157-0.txt")
+
+	// Parse the data
+	ch := make(chan *WordAndCount)
+	go ParseText(string(text), ch)
+	defer close(ch)
 
 	// Open the output file
 	fpout, err := os.Create("/tmp/tolstoy.txt")
@@ -76,10 +95,12 @@ func main() {
 		return
 	}
 
-	// Write the map
-	for _, word := range keys {
-		count := wordMap[word]
-		fmt.Fprintf(fpout, "%s,%d\n", word, count)
+	// Read from the parsing channel and write to the output file
+	for {
+		wac, ok := <- ch
+		if !ok {
+			break
+		}
+		fmt.Fprintf(fpout, "%s,%d\n", wac.Word, wac.Count)
 	}
-
 }

@@ -102,11 +102,8 @@ func main() {
 	}
 
 	// Read from the parsing channel and write to the output file
-	for {
-		wac, ok := <- ch
-		if !ok {
-			break
-		}
+
+	for wac := range ch {
 		if wac == nil {
 			break
 		}

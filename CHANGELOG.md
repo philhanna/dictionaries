@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.0.0] - 2023-02-25
+Initial working version
+
 ## [v0.1.0] - 2023-02-25
 Added test data from Tolstoy and Shakespeare
 
@@ -13,6 +16,7 @@ Initial commit
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/dictionaries/compare/v0.1.0..HEAD
+[Unreleased]: https://github.com/philhanna/dictionaries/compare/v1.0.0..HEAD
+[v1.0.0]: https://github.com/philhanna/dictionaries/compare/v0.1.0..v1.0.0
 [v0.1.0]: https://github.com/philhanna/dictionaries/compare/v0.0.0..v0.1.0
 [v0.0.0]: https://github.com/philhanna/dictionaries/compare/0595dca..v0.0.0

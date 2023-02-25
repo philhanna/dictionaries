@@ -86,11 +86,13 @@ func ParseText(text string, ch chan *WordAndCount) {
 		return iCount > jCount
 	})
 
+	// Send the resulting sorted list up the channel
 	for _, word := range keys {
 		count := wordMap[word]
 		wac := WordAndCount{word, count}
 		ch <- &wac
 	}
 
+	// Signal that we are done with the channel
 	ch <- nil
 }

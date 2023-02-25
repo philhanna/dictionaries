@@ -86,7 +86,7 @@ func ParseText(text string, ch chan *WordAndCount) {
 func main() {
 
 	// Read the whole file as a string
-	text, _ := os.ReadFile("testdata/tolstoy/6157-0.txt")
+	text, _ := os.ReadFile("testdata/shakespeare/pg100.txt")
 
 	// Parse the data
 	ch := make(chan *WordAndCount)
@@ -94,7 +94,7 @@ func main() {
 	defer close(ch)
 
 	// Open the output file
-	fpout, err := os.Create("/tmp/tolstoy.txt")
+	fpout, err := os.Create("/tmp/words.txt")
 	defer fpout.Close()
 	if err != nil {
 		fmt.Println(err)

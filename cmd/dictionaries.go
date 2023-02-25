@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"sort"
 
 	dict "github.com/philhanna/dictionaries"
 )
-
 
 func main() {
 
@@ -21,10 +21,14 @@ positional parameters:
   outputFile       the output file
 
 options are:
-  -h               Show this help text and exit
+  -h, --help       Show this help text and exit
+  -d, --debug      Output words and counts for manual inspection
 `
 		fmt.Fprintf(os.Stderr, "%s\n", usage)
 	}
+	var debug bool
+	flag.BoolVar(&debug, "debug", false, "Output words and counts for manual inspection")
+	flag.BoolVar(&debug, "d", false, "(short form of --debug)")
 	flag.Parse()
 
 	if flag.NArg() < 1 {
@@ -60,12 +64,34 @@ options are:
 	}
 
 	// Read from the parsing channel and write to the output file
-	for wac := range ch {
-		if wac == nil {
-			break
+	wordCount := 0
+	switch debug {
+	case true:
+		for wac := range ch {
+			if wac == nil {
+				break
+			}
+			wordCount++
+			word := wac.Word
+			count := wac.Count
+			fmt.Fprintf(fpout, "%s,%d\n", word, count)
 		}
-		word := wac.Word
-		count := wac.Count
-		fmt.Fprintf(fpout, "%s,%d\n", word, count)
+	default:
+		words := make([]string, 0)
+		for wac := range ch {
+			if wac == nil {
+				break
+			}
+			words = append(words, wac.Word)
+		}
+		sort.Slice(words, func(i, j int) bool {
+			return words[i] < words[j]
+		})
+		for _, word := range words {
+			wordCount++
+			fmt.Fprintf(fpout, "%s\n", word)
+		}
+
 	}
+	fmt.Printf("%d words written to %s\n", wordCount, outputFile)
 }

@@ -46,6 +46,11 @@ func ParseText(text string, ch chan *WordAndCount) {
 			}
 		}
 
+		// Only words of length >= 3
+		if len(word) < 3 {
+			continue
+		}
+
 		// Convert to uppercase
 		word = strings.ToUpper(word)
 
@@ -69,7 +74,8 @@ func ParseText(text string, ch chan *WordAndCount) {
 		return iCount > jCount
 	})
 
-	for word, count := range wordMap {
+	for _, word := range keys {
+		count := wordMap[word]
 		wac := WordAndCount{word, count}
 		ch <- &wac
 	}
@@ -101,6 +107,11 @@ func main() {
 		if !ok {
 			break
 		}
-		fmt.Fprintf(fpout, "%s,%d\n", wac.Word, wac.Count)
+		if wac == nil {
+			break
+		}
+		word := wac.Word
+		count := wac.Count
+		fmt.Fprintf(fpout, "%s,%d\n", word, count)
 	}
 }

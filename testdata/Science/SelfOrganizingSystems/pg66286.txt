@@ -1,0 +1,3560 @@
+﻿The Project Gutenberg eBook of Self-Organizing Systems, 1963, by Various
+
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online at
+www.gutenberg.org. If you are not located in the United States, you
+will have to check the laws of the country where you are located before
+using this eBook.
+
+Title: Self-Organizing Systems, 1963
+
+Author: Various
+
+Editor: James Emmett Garvey
+
+Release Date: September 13, 2021 [eBook #66286]
+
+Language: English
+
+
+Produced by: Mark C. Orton and the Online Distributed Proofreading Team at
+             https://www.pgdp.net
+
+*** START OF THE PROJECT GUTENBERG EBOOK SELF-ORGANIZING SYSTEMS, 1963 ***
+
+
+
+
+Transcriber’s Notes:
+
+  Underscores “_” before and after a word or phrase indicate _italics_
+     in the original text.
+  Equal signs “=” before and after a word or phrase indicate =bold= in
+     the original text.
+  A single underscore after a symbol indicates a subscript.
+  Carat symbol “^” designates a superscript.
+  A bold arrow in front of a letter indicates a vector,
+     e.g. ⮕M means “the vector M”.
+  Small capitals have been converted to SOLID capitals.
+  Illustrations have been moved so they do not break up paragraphs.
+  Typographical and punctuation errors have been silently corrected.
+
+
+
+
+                   SELF-ORGANIZING
+                       SYSTEMS
+                        1963
+
+                     =Edited By=
+
+                =JAMES EMMETT GARVEY=
+              _Office of Naval Research
+                Pasadena, California_
+
+                      =ACR-96=
+
+              =OFFICE OF NAVAL RESEARCH
+               DEPARTMENT OF THE NAVY
+                  WASHINGTON, D.C.=
+
+    For sale by the Superintendent of Documents.
+           U.S. Government Printing Office
+         Washington, D.C., 20402—Price $1.50
+
+
+
+
+CONTENTS
+
+
+    Foreword                                              iv
+
+    The Ionic Hypothesis and Neuron Models                 1
+      —E. R. Lewis
+
+    Fields and Waves in Excitable Cellular Structures     19
+      —R. M. Stewart
+
+    Multi-Layer Learning Networks                         37
+      —R. A. Stafford
+
+    Adaptive Detection of Unknown Binary Waveforms        46
+      —J. J. Spilker, Jr.
+
+    Conceptual Design of Self-Organizing Machines         52
+      —P. A. Kleyn
+
+    A Topological Foundation for Self-Organization        65
+      —R. I. Ścibor-Marchocki
+
+    On Functional Neuron Modeling                         71
+      —C. E. Hendrix
+
+    Selection of Parameters for Neural Net Simulations    76
+      —R. K. Overton
+
+    Index of Invited Participants                         77
+
+
+
+
+FOREWORD
+
+
+The papers appearing in this volume were presented at a Symposium
+on Self-Organizing Systems, which was sponsored by the Office of
+Naval Research and held at the California Institute of Technology,
+Pasadena, California, on 14 November 1963. The Symposium was organized
+with the aim of providing a critical forum for the presentation and
+discussion of contemporary significant research efforts, with the
+emphasis on relatively uncommon approaches and methods in an early
+state of development. This aim and nature dictated that the Symposium
+be in effect a Working Group, with numerically limited invitational
+participation.
+
+The papers which were presented and discussed did in fact serve
+to introduce several relatively unknown approaches; some of the
+speakers were promising young scientists, others had become known for
+contributions in different fields and were as yet unrecognized for
+their recent work in self-organization. In addition, the papers as a
+collection provided a particularly broad, cross-disciplinary spectrum
+of investigations which possessed intrinsic value as a portrayal of
+the bases upon which this new discipline rests. Accordingly, it became
+obvious in retrospect that the information presented and discussed at
+the Symposium was of considerable interest—and should thus receive
+commensurate dissemination—to a much broader group of scientists and
+engineers than those who were able to participate directly in the
+meeting itself. This volume is the result of that observation; as an
+edited collection of the papers presented at the Symposium, it forms
+the Proceedings thereof. If it provides a useful reference for present
+and future investigators, as well as documenting the source of several
+new approaches, it will have fulfilled its intended purpose well.
+
+A Symposium which takes the nature of a Working Group depends for its
+utility especially upon effective commentary and critical analysis,
+and we commend all the participants for their contributions in this
+regard. It is appropriate, further, to acknowledge the contributions
+to the success of the Symposium made by the following: The California
+Institute of Technology for volunteering to act as host and for
+numerous supporting services; Professor Gilbert D. McCann, Director
+of the Willis Booth Computing Center at the California Institute of
+Technology, and the members of the technical and secretarial staffs
+of the Computing Center, who assumed the responsibility of acting as
+the immediate representatives of the Institute; the members of the
+Program Committee, who organized and led the separate sessions—Harold
+Hamilton of General Precision, Joseph Hawkins of Ford Motor Company,
+Robert Stewart of Space-General, Peter Kleyn of Northrop, and Professor
+McCann; members of the Technical Information Division of the Naval
+Research Laboratory, who published these Proceedings; and especially
+the authors of the papers, which comprised the heart of the Symposium
+and subsequently formed this volume. To all of these the sponsors wish
+to express their very sincere appreciation.
+
+     JAMES EMMETT GARVEY
+    _Office of Naval Research Branch Office
+     Pasadena, California_
+
+     MARGO A. SASS
+    _Office of Naval Research
+     Washington, D.C._
+
+
+
+
+The Ionic Hypothesis and Neuron Models
+
+
+                    E. R. LEWIS
+
+         _Librascope Group, General Precision, Inc.
+                 Research and Systems Center
+                    Glendale, California_
+
+    The measurements of Hodgkin and Huxley were aimed at
+    revealing the mechanism of generation and propagation
+    of the all-or-none spike. Their results led to the
+    Modern Ionic Hypothesis. Since the publication of
+    their papers in 1952, advanced techniques with
+    microelectrodes have led to the discovery of many
+    modes of subthreshold activity not only in the axon
+    but also in the somata and dendrites of neurons. This
+    activity includes synaptic potentials, local response
+    potentials, and pacemaker potentials.
+
+    We considered the question, “Can this activity also
+    be explained in terms of the Hodgkin-Huxley Model?”
+    To seek an answer, we have constructed an electronic
+    analog based on the ionic hypothesis and designed
+    around the data of Hodgkin and Huxley. Synaptic
+    inputs were simulated by simple first-order or
+    second-order networks connected directly to simulated
+    conductances (potassium or sodium). The analog has,
+    with slight parameter adjustments, produced all modes
+    of threshold and subthreshold activity.
+
+
+INTRODUCTION
+
+In recent years physiologists have become quite adept at probing
+into neurons with intracellular microelectrodes. They are now able,
+in fact, to measure (a) the voltage change across the postsynaptic
+membrane elicited by a single presynaptic impulse (see, for examples,
+references 1 and 2) and (b) the voltage-current characteristics
+across a localized region of the nerve cell membrane (3), (4), (5),
+(6). With microelectrodes, physiologists have been able to examine
+not only the all-or-none spike generating and propagating properties
+of axons but also the electrical properties of somatic and dendritic
+structures in individual neurons. The resulting observations have
+led many physiologists to believe that the individual nerve cell
+is a potentially complex information-processing system far removed
+from the simple two-state device envisioned by many early modelers.
+This new concept of the neuron is well summarized by Bullock in his
+1959 _Science_ article (10). In the light of recent physiological
+literature, one cannot justifiably omit the diverse forms of somatic
+and dendritic behavior when assessing the information-processing
+capabilities of single neurons. This is true regardless of the means of
+assessment—whether one uses mathematical idealizations, electrochemical
+models, or electronic analogs. We have been interested specifically in
+electronic analogs of the neuron; and in view of the widely diversified
+behavior which we must simulate, our first goal has been to find a
+unifying concept about which to design our analogs. We believe we have
+found such a concept in the Modern Ionic Hypothesis, and in this paper
+we will discuss an electronic analog of the neuron which was based on
+this hypothesis and which simulated not only the properties of the
+axon but also the various subthreshold properties of the somata and
+dendrites of neurons.
+
+We begin with a brief summary of the various types of subthreshold
+activity which have been observed in the somatic and dendritic
+structures of neurons. This is followed by a brief discussion of the
+Hodgkin-Huxley data and of the Modern Ionic Hypothesis. An electronic
+analog based on the Hodgkin-Huxley data is then introduced, and we show
+how this analog can be used to provide all of the various types of
+somatic and dendritic activity.
+
+
+SUBTHRESHOLD ELECTRICAL ACTIVITY IN NEURONS
+
+In studying the recent literature in neurophysiology, one is
+immediately struck by the diversity in form of both elicited and
+spontaneous electrical activity in the single nerve cell. This applies
+not only to the temporal patterns of all-or-none action potentials
+but also to the graded somatic and dendritic potentials. The synaptic
+membrane of a neuron, for example, is often found to be electrically
+inexcitable and thus incapable of producing an action potential; yet
+the graded, synaptically induced potentials show an amazing diversity
+in form. In response to a presynaptic impulse, the postsynaptic
+membrane may become hyperpolarized (inhibitory postsynaptic potential),
+depolarized (excitatory postsynaptic potential), or remain at the
+resting potential but with an increased permeability to certain ions
+(a form of inhibition). The form of the postsynaptic potential in
+response to an isolated presynaptic spike may vary from synapse to
+synapse in several ways, as shown in Figure 1. Following a presynaptic
+spike, the postsynaptic potential typically rises with some delay to
+a peak value and then falls back toward the equilibrium or resting
+potential. Three potentially important factors are the delay time
+(synaptic delay), the peak amplitude (spatial weighting of synapse),
+and the rate of fall toward the equilibrium potential (temporal
+weighting of synapse). The responses of a synapse to individual spikes
+in a volley may be progressively enhanced (facilitation), diminished
+(antifacilitation), or neither (1), (2), (7), (8). Facilitation may be
+in the form of progressively increased peak amplitude, or in the form
+of progressively decreased rate of fall (see Figure 2). The time course
+and magnitude of facilitation or antifacilitation may very well be
+important synaptic parameters. In addition, the postsynaptic membrane
+sometimes exhibits excitatory or inhibitory aftereffects (or both) on
+cessation of a volley of presynaptic spikes (2), (7); and the time
+course and magnitude of the aftereffects may be important parameters.
+Clearly, even if one considers the synaptic potentials alone, he is
+faced with an impressive variety of responses. Examples of the various
+types of postsynaptic responses may be found in the literature, but for
+purposes of the present discussion the idealized wave forms in Figure 2
+will demonstrate the diversity of electrical behavior with which one is
+faced.
+
+[Illustration: A. EXCITATORY POSTSYNAPTIC POTENTIAL FROM APLYSIA (SEE
+REF. 2)]
+
+[Illustration: B. EXCITATORY POSTSYNAPTIC POTENTIAL FROM PANULIRUS (SEE
+REF. 1)]
+
+[Illustration: C. EXCITATORY POSTSYNAPTIC POTENTIAL FROM MAMMALIAN
+MOTONEURONE (SEE REF. 24)]
+
+[Illustration: D. PRESYNAPTIC SPIKE
+
+Figure 1—Excitatory postsynaptic potentials in response to a single
+presynaptic spike]
+
+[Illustration: A. TEMPORAL FACILITATION]
+
+[Illustration: B. AMPLITUDE FACILITATION]
+
+[Illustration: C. ANTIFACILITATION]
+
+[Illustration: D. INHIBITORY POSTSYNAPTIC POTENTIALS EXHIBITING
+BIPHASIC REBOUND]
+
+[Illustration: E. PRESYNAPTIC SPIKE BURST
+
+Figure 2—Idealized postsynaptic potentials]
+
+In addition to synaptically induced potentials, low-frequency,
+spontaneous potential fluctuations have been observed in many neurons
+(2), (7), (9), (10), (11). These fluctuations, generally referred to
+as pacemaker potentials, are usually rhythmic and may be undulatory
+or more nearly saw-toothed in form. The depolarizing phase may be
+accompanied by a spike, a volley of spikes, or no spikes at all.
+Pacemaker frequencies have been noted from ten or more cycles per
+second down to one cycle every ten seconds or more. Some idealized
+pacemaker wave forms are shown in Figure 3.
+
+[Illustration: A. PERIODIC BURSTS]
+
+[Illustration: B. PACEMAKER POTENTIALS WITHOUT SPIKES]
+
+[Illustration: C. PACEMAKER POTENTIALS WITH SINGLE SPIKES ON
+DEPOLARIZING PHASE
+
+Figure 3—Idealized pacemaker potentials]
+
+[Illustration: A. FORM OF VOLTAGE STIMULI AND RESULTING MEMBRANE
+POTENTIAL CHANGES.]
+
+[Illustration: B. RESPONSE CURVE OF TYPICAL GRADED RESPONSE REGION.
+
+Figure 4—Graded response]
+
+Bullock (7), (10), (12), (13) has demonstrated the existence of
+a third type of subthreshold response, which he calls the graded
+response. While the postsynaptic membrane is quite often electrically
+inexcitable, other regions of the somatic and dendritic membranes
+appear to be moderately excitable. It is in these regions that Bullock
+observes the graded response. If one applies a series of pulsed voltage
+stimuli to the graded-response region, the observed responses would be
+similar to those shown in Figure 4A. Plotting the peak response voltage
+as a function of the stimulus voltage would result in a curve similar
+to that in Figure 4B (see Ref. 3, page 4). For small values of input
+voltage, the response curve is linear; the membrane is passive. As the
+stimulus voltage is increased, however, the response becomes more and
+more disproportionate. The membrane is actively amplifying the stimulus
+potential. At even higher values of stimulus potential, the system
+becomes regenerative; and a full action potential results. The peak
+amplitude of the response depends on the duration of the stimulus as
+well as on the amplitude. It also depends on the rate of application of
+the stimulus voltage. If the stimulus potential is a voltage ramp, for
+example, the response will depend on the slope of the ramp. If the rate
+of rise is sufficiently low, the membrane will respond in a passive
+manner to voltages much greater than the spike threshold for suddenly
+applied voltages. In other words, the graded-response regions appear to
+accommodate to slowly varying potentials.
+
+In terms of functional operation, we can think of the synapse as a
+transducer. The input to this transducer is a spike or series of spikes
+in the presynaptic axon. The output is an accumulative, long-lasting
+potential which in some way (perhaps not uniquely) represents the
+pattern of presynaptic spikes. The pacemaker appears to perform the
+function of a clock, producing periodic spikes or spike bursts or
+producing periodic changes in the over-all excitability of the neuron.
+The graded-response regions appear to act as nonlinear amplifiers and,
+occasionally, spike initiators. The net result of this electrical
+activity is transformed into a series of spikes which originate at
+spike initiation sites and are propagated along axons to other neurons.
+The electrical activity in the neuron described above is summarized in
+the following outline (taken in part from Bullock (7)):
+
+    1. Synaptic Potentials
+         a. Excitatory or inhibitory
+         b. Facilitated, antifacilitated, or neither
+         c. With excitatory aftereffect, inhibitory aftereffect,
+            neither, or both
+
+    2. Pacemaker Potentials
+         a. Relaxation type, undulatory type, or none at all
+         b. Producing single spike, spike burst, or no spikes
+         c. Rhythmic or sporadic
+
+    3. Graded Response (rate sensitive)
+
+    4. Spike Initiation
+
+
+THE MODERN IONIC HYPOTHESIS
+
+Hodgkin, Huxley, and Katz (3) and Hodgkin and Huxley (14), (15), (16),
+in 1952, published a series of papers describing detailed measurements
+of voltage, current, and time relationships in the giant axon of the
+squid (_Loligo_). Hodgkin and Huxley (17) consolidated and formalized
+these data into a set of simultaneous differential equations describing
+the hypothetical time course of events during spike generation and
+propagation. The hypothetical system which these equations describe is
+the basis of the Modern Ionic Hypothesis.
+
+The system proposed by Hodgkin and Huxley is basically one of dynamic
+opposition of ionic fluxes across the axon membrane. The membrane
+itself forms the boundary between two liquid phases—the intracellular
+fluid and the extracellular fluid. The intracellular fluid is rich in
+potassium ions and immobile organic anions, while the extracellular
+fluid contains an abundance of sodium ions and chloride ions. The
+membrane is slightly permeable to the potassium, sodium, and chloride
+ions; so these ions tend to diffuse across the membrane. When the
+axon is inactive (not propagating a spike), the membrane is much more
+permeable to chloride and potassium ions than it is to sodium ions.
+In this state, in fact, sodium ions are actively transported from the
+inside of the membrane to the outside at a rate just sufficient to
+balance the inward leakage. The relative sodium ion concentrations on
+both sides of the membrane are thus fixed by the active transport rate,
+and the net sodium flux across the membrane is effectively zero. The
+potassium ions, on the other hand, tend to move out of the cell; while
+chloride ions tend to move into it. The inside of the cell thus becomes
+negative with respect to the outside. When the potential across the
+membrane is sufficient to balance the inward diffusion of chloride with
+an equal outward drift, and the outward diffusion of potassium with an
+inward drift (and possibly an inward active exchange), equilibrium is
+established. The equilibrium potential is normally in the range of 60
+to 65 millivolts.
+
+The resting neural membrane is thus polarized, with the inside
+approximately 60 millivolts negative with respect to the outside.
+Most of the Hodgkin-Huxley data is based on measurements of the
+transmembrane current in response to an imposed stepwise reduction
+(depolarization) of membrane potential. By varying the external
+ion concentrations, Hodgkin and Huxley were able to resolve the
+transmembrane current into two “active” components, the potassium
+ion current and the sodium ion current. They found that while the
+membrane permeabilities to chloride and most other inorganic ions
+were relatively constant, the permeabilities to both potassium and
+sodium were strongly dependent on membrane potential. In response to a
+suddenly applied (step) depolarization, the sodium permeability rises
+rapidly to a peak and then declines exponentially to a steady value.
+The potassium permeability, on the other hand, rises with considerable
+delay to a value which is maintained as long as the membrane remains
+depolarized. The magnitudes of both the potassium and the sodium
+permeabilities increase monotonically with increasing depolarization.
+A small imposed depolarization will result in an immediately
+increased sodium permeability. The resulting increased influx of
+sodium ions results in further depolarization; and the process
+becomes regenerative, producing the all-or-none action potential.
+At the peak of the action potential, the sodium conductance begins
+to decline, while the delayed potassium conductance is increasing.
+Recovery is brought about by an efflux of potassium ions, and both
+ionic permeabilities fall rapidly as the membrane is repolarized.
+The potassium permeability, however, falls less rapidly than that of
+sodium. This is basically the explanation of the all-or-none spike
+according to the Modern Ionic Hypothesis.
+
+[Illustration: Figure 5—Hodgkin-Huxley representation of small area of
+axon membrane]
+
+[Illustration: Figure 6—Typical responses of sodium conductance and
+potassium conductance to imposed step depolarization]
+
+By defining the net driving force on any given ion species as the
+difference between the membrane potential and the equilibrium potential
+for that ion and describing permeability changes in terms of equivalent
+electrical conductance changes, Hodgkin and Huxley reduced the ionic
+model to the electrical equivalent in Figure 5. The important dynamic
+variables in this equivalent network are the sodium conductance
+(G{Na}) and the potassium conductance (G{K}). The change in the sodium
+conductance in response to a step depolarization is shown in Figure 6B.
+This change can be characterized by seven voltage dependent parameters:
+
+    1. Delay time—generally much less than 1 msec
+    2. Rise time—1 msec or less
+    3. Magnitude of peak conductance—increases
+       monotonically with increasing depolarization
+    4. Inactivation time constant—decreases
+       monotonically with increasing depolarization.
+    5. Time constant of recovery from
+       inactivation—incomplete data
+    6. Magnitude of steady-state conductance—increases
+       monotonically with increasing depolarization
+    7. Fall time on sudden repolarization—less than 1 msec.
+
+Figure 6B shows the potassium conductance change in response to
+an imposed step depolarization. Four parameters are sufficient to
+characterize this response:
+
+    1. Delay time—decreases monotonically with
+       increasing depolarization
+    2. Rise time—decreases monotonically with increasing
+       depolarization
+    3. Magnitude of steady-state conductance—increases
+       monotonically with increasing depolarization
+    4. Fall time on sudden repolarization—8 msec
+       or more, decreases slightly with increasing
+       depolarization.
+
+In addition to the aforementioned parameters, the transient portion of
+the sodium conductance appears to exhibit an accommodation to slowly
+varying membrane potentials. The time constants of accommodation appear
+to be those of inactivation or recovery from inactivation—depending on
+the direction of change in the membrane potential (18). The remaining
+elements in the Hodgkin-Huxley model are constant and are listed below:
+
+    1. Potassium potential—80 to 85 mv (inside negative)
+    2. Sodium potential—45 to 50 mv (inside positive)
+    3. Leakage potential—38 to 43 mv (inside negative)
+    4. Leakage conductance—approx. 0.23 millimhos/cm²
+    5. Membrane capacitance—approx. 1 μf/cm²
+    6. Resting potential—60 to 65 mv
+    7. Spike amplitude—approx. 100 mv
+
+
+ELECTRONIC SIMULATION OF THE HODGKIN-HUXLEY MODEL
+
+[Illustration: Figure 7—System diagram for electronic simulation of the
+Hodgkin-Huxley model]
+
+Given a suitable means of generating the conductance functions,
+G_{Na}(v,t) and G_{K}(v,t), one can readily stimulate the essential
+aspects of the Modern Ionic Hypothesis. If we wish to do this
+electronically, we have two problems. First, we must synthesize
+a network whose input is the membrane potential and whose output
+is a voltage or current proportional to the desired conductance
+function. Second, we must transform the output from a voltage or
+current to an effective electronic conductance. The former implies
+the need for nonlinear, active filters, while the latter implies
+the need for multipliers. The basic block diagram is shown in
+Figure 7. Several distinct realizations of this system have been
+developed in our laboratory, and in each case the results were the
+same. With parameters adjusted to closely match the data of Hodgkin
+and Huxley, the electronic model exhibits all of the important
+properties of the axon. It produces spikes of 1 to 2 msec duration
+with a threshold of approximately 5% to 10% of the spike amplitude.
+The applied stimulus is generally followed by a prepotential, then
+an active rise of less than 1 msec, followed by an active recovery.
+The after-depolarization generally lasts several msec, followed by
+a prolonged after-hyperpolarization. The model exhibits the typical
+strength-duration curve, with rheobase of 5% to 10% of the spike
+amplitude. For sufficiently prolonged sodium inactivation (long time
+constant of recovery from inactivation), the model also exhibits an
+effect identical to classical Wedensky inhibition (18). Thus, as would
+be expected, the electronic model simulates very well the electrical
+properties of the axon.
+
+In addition to the axon properties, however, the electronic model is
+able to reproduce all of the somatic and dendritic activity outlined
+in the section on subthreshold activity. Simulation of the pacemaker
+and graded-response potentials is accomplished without additional
+circuitry. In the case of synaptically induced potentials, however,
+auxiliary networks are required. These networks provide additive terms
+to the variable conductances in accordance with current notions on
+synaptic transmission (19). Two types of networks have been used. In
+both, the inputs are simulated presynaptic spikes, and in both the
+outputs are the resulting simulated chemical transmitter concentration.
+In both, the transmitter substance was assumed to be injected at a
+constant rate during a presynaptic spike and subsequently inactivated
+in the presence of an enzyme. One network simulates a first-order
+chemical reaction, where the enzyme concentration is effectively
+constant. The other simulates a second-order chemical reaction,
+where the enzyme concentration is assumed to be reduced during the
+inactivation process. For simulation of an excitatory synapse, the
+output of the auxiliary network is added directly to G_{Na} in the
+electronic model. For inhibition, it is added to G_{K}. With the
+parameters of the electronic membrane model set at the values measured
+by Hodgkin and Huxley, we have attempted to simulate synaptic activity
+with the aid of the two types of auxiliary networks. In the case of
+the simulated first-order reaction, the excitatory synapse exhibits
+facilitation, antifacilitation, or neither—depending on the setting
+of a single parameter, the transmitter inactivation rate (_i.e._,
+the effective enzyme concentration). This parameter would appear,
+in passing, to be one of the most probable synaptic variables. In
+this case, the mechanisms for facilitation and antifacilitation are
+contained in the simulated postsynaptic membrane. Facilitation is due
+to the nonlinear dependence of G_{Na} on membrane potential, while
+antifacilitation is due to inactivation of G_{Na}. The occurrence
+of one form of response or the other is determined by the relative
+importance of the two mechanisms (18). Grundfest (20) has mentioned
+both of these mechanisms as potentially facilitory and antifacilitory,
+respectively. The simulated inhibitory synapse with the first order
+input is capable of facilitation (18), but no antifacilitation has been
+observed. Again, the presence or absence of facilitation is determined
+by the inactivation rate.
+
+With the simulated second-order reaction, both excitatory and
+inhibitory synapses exhibit facilitation. In this case, two facilitory
+mechanisms are present—one in the postsynaptic membrane and one in the
+nonconstant transmitter inactivation reaction. The active membrane
+currents can, in fact, be removed; and this system will still exhibit
+facilitation. With the second-order auxiliary network, the presence
+of excitatory facilitation, antifacilitation, or neither depends
+on the initial, or resting, transmitter inactivation rate. The
+synaptic behavior also depends parametrically on the simulated enzyme
+reactivation rate. Inhibitory antifacilitation can be introduced with
+either type of auxiliary network by limiting the simulated presynaptic
+transmitter supply.
+
+Certain classes of aftereffects are inherent in the mechanisms of the
+Ionic Hypothesis. In the electronic model, aftereffects are observed
+following presynaptic volleys with either type of auxiliary network.
+Following a volley of spikes into the simulated excitatory synapse,
+for example, rebound hyperpolarization may or may not occur depending
+on the simulated transmitter inactivation rate. If the inactivation
+rate is sufficiently high, rebound will occur. This rebound can be
+monophasic (inhibitory phase only) or polyphasic (successive cycles
+of excitation and inhibition). Following a volley of spikes into the
+simulated inhibitory synapse, rebound depolarization may or may not
+occur depending on the simulated transmitter inactivation rate. This
+rebound can also be monophasic or polyphasic. Sustained postexcitatory
+depolarization and sustained postinhibitory hyperpolarization (2) have
+been achieved in the model by making the transmitter inactivation rate
+sufficiently low.
+
+The general forms of the postsynaptic potentials simulated with
+the electronic model are strikingly similar to those published in
+the literature for real neurons. The first-order auxiliary network
+produces facilitation of a form almost identical to that shown by Otani
+and Bullock (8) while the second-order auxiliary network produces
+facilitation of the type shown by Chalazonitis and Arvanitake (2).
+The excitatory antifacilitation is almost identical to that shown by
+Hagiwara and Bullock (1) in both form and dependence on presynaptic
+spike frequency. In every case, the synaptic behavior is determined
+by the effective rate of transmitter inactivation, which in real
+neurons would presumably be directly proportional to the effective
+concentration of inactivating enzyme at the synapse.
+
+Pacemaker potentials are easily simulated with the electronic model
+without the use of auxiliary networks. This is achieved either by
+inserting a large, variable shunt resistor across the simulated
+membrane (see Figure 5) or by allowing a small sodium current leakage
+at the resting potential. With the remaining parameters of the
+model set as close as possible to the values determined by Hodgkin
+and Huxley, the leakage current induces low-frequency, spontaneous
+spiking. The spike frequency increases monotonically with increasing
+leakage current. In addition, if the sodium conductance inactivation
+is allowed to accumulate over several spikes, periodic spike pairs
+and spike bursts will result. Subthreshold pacemaker potentials have
+also been observed in the model, but with parameter values set close
+to the Hodgkin-Huxley data these are generally higher in frequency
+than pacemaker potentials in real neurons. It is interesting that
+a pacemaker mode may exist in the absence of the simulated sodium
+conductance. It is a very high-frequency mode (50 cps or more)
+and results from the alternating dominance of potassium current
+and chloride (or leakage ion) current in determining the membrane
+potential. The significance of this mode cannot be assessed until
+better data is available for the potassium conductance at low levels
+of depolarization in real neurons. In general, as far as the model is
+concerned, pacemaker potentials are possible because the potassium
+conductance is delayed in both its rise with depolarization and its
+fall with repolarization.
+
+Rate sensitive graded response has also been observed in the electronic
+model. The rate sensitivity—or accommodation—is due to the sodium
+conductance inactivation. The response of the model to an imposed ramp
+depolarization was discussed in Reference 18. At this time, several
+alternative model parameters could be altered to bring about reduced
+electrical excitability. None of the parameter changes was very
+satisfying, however, because none of them was in any way justified by
+physiological data. We have since found that the membrane capacitance,
+a plausible parameter in view of recent physiological findings, can
+completely determine the electrical excitability. Thus, with the
+capacitance determined by Hodgkin and Huxley (1 microfarad per cm²),
+the model exhibits excitability characteristic of the axon. As the
+capacitance is increased, the model becomes less excitable until, with
+10 or 12 μμf, it is effectively inexcitable. Thus, with an increased
+capacitance—but with all the remaining parameters set as close as
+possible to the Hodgkin-Huxley values—the electronic model exhibits the
+characteristics of Bullock’s graded-response regions.
+
+Whether membrane capacitance is the determining factor in real neurons
+is, of course, a matter of speculation. Quite a controversy is raging
+over membrane capacity measurements (see Rall (21)), but the evidence
+indicates that the capacity in the soma is considerably greater than
+that in the axon (6), (22).
+
+It should be added that increasing the capacitance until the membrane
+model becomes inexcitable has little effect on the variety of available
+simulated synaptic responses. Facilitation, antifacilitation, and
+rebound are still present and still depend on the transmitter
+inactivation rate. Thus, in the model, we can have a truly inexcitable
+membrane which nevertheless utilizes the active membrane conductances
+to provide facilitation or antifacilitation, and rebound. The simulated
+subthreshold pacemaker potentials are much more realistic with the
+increased capacitance, being lower in frequency and more natural in
+form.
+
+In one case, the electronic model predicted behavior which was
+subsequently reported in real neurons. This was in respect to the
+interaction of synaptic potentials and pacemaker potential. It was
+noted in early experiments that when the model was set in a pacemaker
+mode, and periodic spikes were applied to the simulated inhibitory
+synapse, the pacemaker frequency could be modified; and, in fact,
+it would tend to lock on to the stimulus frequency. This produced
+a paradoxical effect whereby the frequency of spontaneous spikes
+was actually increased by increasing the frequency of inhibitory
+synaptic stimuli. At very low stimulus frequencies, the spontaneous
+pacemaker frequency was not appreciably perturbed. As the stimulus
+frequency was increased, and approached the basic pacemaker frequency,
+the latter tended to lock on and follow further increases in the
+stimulus frequency. When the stimulus frequency became too high for
+the pacemaker to follow, the latter decreased abruptly in frequency
+and locked on to the first subharmonic. As the stimulus frequency was
+further increased, the pacemaker frequency would increase, then skip to
+the next harmonic, then increase again, _etc._ This type of behavior
+was observed by Moore _et al._ (23) in _Aplysia_ and reported at the
+San Diego Symposium for Biomedical Electronics shortly after it was
+observed by the author in the electronic model.
+
+Thus, we have shown that an electronic analog with all parameters
+except membrane capacitance fixed at values close to those of Hodgkin
+and Huxley, can provide all of the normal threshold or axonal
+behavior and also all of the subthreshold somatic and dendritic
+behavior outlined on page 7. Whether or not this is of physiological
+significance, it certainly provides a unifying basis for construction
+of electronic neural analogs. Simple circuits, based on the
+Hodgkin-Huxley model and providing all of the aforementioned behavior,
+have been constructed with ten or fewer inexpensive transistors with
+a normal complement of associated circuitry (18). In the near future
+we hope to utilize several models of this type to help assess the
+information-processing capabilities not only of individual neurons but
+also of small groups or networks of neurons.
+
+
+REFERENCES
+
+    1. Hagiwara, S., and Bullock, T. H.
+       “Intracellular Potentials in Pacemaker and Integrative Neurons of
+        the Lobster Cardiac Ganglion,”
+       _J. Cell and Comp. Physiol._ =50 (No. 1)=:25-48 (1957)
+
+    2. Chalazonitis, N., and Arvanitaki, A.,
+       “Slow Changes during and following Repetitive Synaptic Activation
+        in Ganglion Nerve Cells,”
+       _Bull. Inst. Oceanogr. Monaco_ =No. 1225=:1-23 (1961)
+
+    3. Hodgkin, A. L., Huxley, A. F., and Katz, B.,
+       “Measurement of Current-Voltage Relations in the Membrane of the
+        Giant Axon of _Loligo_,”
+       _J. Physiol._ =116=:424-448 (1952)
+
+    4. Hagiwara, S., and Saito, N.,
+       “Voltage-Current Relations in Nerve Cell Membrane of Onchidium
+       _verruculatum_,”
+       _J. Physiol._ =148=:161-179 (1959)
+
+    5. Hagiwara, S., and Saito, N.,
+       “Membrane Potential Change and Membrane Current in Supramedullary
+        Nerve Cell of Puffer,”
+       _J. Neurophysiol._ =22=:204-221 (1959)
+
+    6. Hagiwara, S.,
+       “Current-Voltage Relations of Nerve Cell Membrane,”
+       “Electrical Activity of Single Cells,”
+        Igakushoin, Hongo, Tokyo (1960)
+
+    7. Bullock, T. H.,
+       “Parameters of Integrative Action of the Nervous System at the
+        Neuronal Level,”
+       _Experimental Cell Research Suppl._ =5=:323-337 (1958)
+
+    8. Otani, T., and Bullock, T. H.,
+       “Effects of Presetting the Membrane Potential of the Soma of
+        Spontaneous and Integrating Ganglion Cells,”
+       _Physiological Zoology_ =32 (No. 2)=:104-114 (1959)
+
+    9. Bullock, T. H., and Terzuolo, C. A.,
+       “Diverse Forms of Activity in the Somata of Spontaneous and
+        Integrating Ganglion Cells,”
+       _J. Physiol._ =138=:343-364 (1957)
+
+    10. Bullock, T. H.,
+        “Neuron Doctrine and Electrophysiology,”
+        _Science_ =129 (No. 3355)=:997-1002 (1959)
+
+    11. Chalazonitis, N., and Arvanitaki, A.,
+        “Slow Waves and Associated Spiking in Nerve Cells of
+        _Aplysia_,”
+        _Bull. Inst. Oceanogr. Monaco_ =No. 1224=:1-15 (1961)
+
+    12. Bullock, T. H.,
+        “Properties of a Single Synapse in the Stellate Ganglion of
+         Squid,”
+        _J. Neurophysiol._ =11=:343-364 (1948)
+
+    13. Bullock, T. H.,
+        “Neuronal Integrative Mechanisms,”
+        “Recent Advances in Invertebrate Physiology,”
+         Scheer, B. T., ed., Eugene, Oregon:Univ. Oregon Press 1957
+
+    14. Hodgkin, A. L., and Huxley, A. F.,
+        “Currents Carried by Sodium and Potassium Ions through the
+         Membrane of the Giant Axon of Loligo,”
+        _J. Physiol._ =116=:449-472 (1952)
+
+    15. Hodgkin, A. L., and Huxley, A. F.,
+        “The Components of Membrane Conductance in the Giant Axon of
+        _Loligo_,”
+        _J. Physiol._ =116=:473-496 (1952)
+
+    16. Hodgkin, A. L., and Huxley, A. F.,
+        “The Dual Effect of Membrane Potential on Sodium Conductance in
+         the Giant Axon of _Loligo_,”
+        _J. Physiol._ =116=:497-506 (1952)
+
+    17. Hodgkin, A. L., and Huxley, A. F.,
+        “A Quantitative Description of Membrane Current and its
+         Application to Conduction and Excitation in Nerve,”
+        _J. Physiol._ =117=:500-544 (1952)
+
+    18. Lewis, E. R.,
+        “An Electronic Analog of the Neuron Based on the Dynamics of
+         Potassium and Sodium Ion Fluxes,”
+        “Neural Theory and Modeling,”
+         R. F. Reiss, ed., Palo Alto, California:Stanford University
+         Press, 1964
+
+    19. Eccles, J. C.,
+       _Physiology of Synapses_,
+        Berlin:Springer-Verlag, 1963
+
+    20. Grundfest, H.,
+        “Excitation Triggers in Post-Junctional Cells,”
+        “Physiological Triggers,”
+         T. H. Bullock, ed., Washington, D.C.:American Physiological
+         Society, 1955
+
+    21. Rall, W.,
+        “Membrane Potential Transients and Membrane Time Constants of
+         Motoneurons,”
+        _Exp. Neurol._ =2=:503-532 (1960)
+
+    22. Araki, T., and Otani, T.,
+        “The Response of Single Motoneurones to Direct Stimulation,”
+        _J. Neurophysiol._ =18=:472-485 (1955)
+
+    23. Moore, G. P., Perkel, D. H., and Segundo, J. P.,
+        “Stability Patterns in Interneuronal Pacemaker Regulation,”
+        _Proceedings of the San Diego Symposium for Biomedical
+         Engineering_, San Diego, California, 1963
+
+    24. Eccles, J. C.,
+       _The Neurophysiological Basis of Mind_,
+        Oxford:Clarendon Press, 1952
+
+
+
+
+Fields and Waves in Excitable Cellular Structures
+
+
+                       R. M. STEWART
+
+                _Space General Corporation
+                   El Monte, California_
+
+    “Study of living processes by the physiological
+    method only proceeded laboriously behind the study of
+    non-living systems. Knowledge about respiration, for
+    instance, began to become well organized as the study
+    of combustion proceeded, since this is an analogous
+    operation....”
+
+                                        J. Z. Young (24)
+
+
+INTRODUCTION
+
+The study of electrical fields in densely-packed cellular media is
+prompted primarily by a desire to understand more fully the details
+of brain mechanism and its relation to behavior. Our work has
+specifically been directed toward an attempt to model such structures
+and mechanisms, using relatively simple inorganic materials.
+
+The prototype for such experiments is the “Lillie[1] iron-wire nerve
+model.” Over a hundred years ago, it had been observed that visible
+waves were produced on the surface of a piece of iron submerged in
+nitric acid when and where the iron is touched by a piece of zinc.
+After a short period of apparent fatigue, the wire recovers and can
+again support a wave when stimulated. Major support for the idea that
+such impulses are in fact directly related to peripheral nerve impulses
+came from Lillie around 1920. Along an entirely different line,
+various persons have noted the morphological and dynamic similarity of
+dendrites in brain and those which sometimes grow by electrodeposition
+of metals from solution. Gordon Pask (17), especially, has pointed to
+this similarity and has discussed in a general way the concomitant
+possibility of a physical model for the persistent memory trace.
+
+[1] For review articles see: Lillie (13), Franck (6).
+
+By combining and extending such concepts and techniques, we hope to
+produce a macroscopic model of “gray matter,” the structural matrix of
+which will consist of a dense, homogeneously-mixed, conglomerate of
+small pellets, capable of supporting internal waves of excitation, of
+changing electrical behavior through internal fine-structure growth,
+and of forming temporal associations in response to peripheral shocks.
+
+A few experimenters have subsequently pursued the iron-wire
+nerve-impulse analogy further, hoping thereby to illuminate the
+mechanisms of nerve excitation, impulse transmission and recovery,
+but interest has generally been quite low. It has remained fairly
+undisturbed in the text books and lecture demonstrations of medical
+students, as a picturesque aid to their formal education. On the
+outer fringes of biology, still less interest has been displayed;
+the philosophical vitalists would surely be revolted by the idea of
+such models of mind and memory, and at the other end of the scale,
+contemporary computer engineers generally assume that a nerve cell
+operates much too slowly to be of any value. This lack of interest
+is certainly due, in part, to success in developing techniques of
+monitoring individual nerve fibers directly to the point that it is
+just about as easy to work with large nerve fibers (and even peripheral
+and spinal junctions) as it is to work with iron wires. Under such
+circumstances, the model has only limited value, perhaps just to the
+extent that it emphasizes the role of factors other than specific
+molecular structure and local chemical reactions in the dynamics of
+nerve action.
+
+When we leave the questions of impulse transmission on long fibers
+and peripheral junctions, however, and attempt to discuss the brain,
+there can be hardly any doubt that the development of a meaningful
+physical model technique would be of great value. Brain tissue is
+soft and sensitive, the cellular structures are small, tangled, and
+incredibly numerous. Therefore (Young (24)), “ ... physiologists hope
+that after having learned a lot about nerve-impulses in the nerves they
+will be able to go on to study how these impulses interact when they
+reach the brain. [But], we must not assume that we shall understand
+the brain only in the terms we have learned to use for the nerves.
+The function of nerves is to carry impulses—like telegraph wires. The
+functions of brains is something else.” But, confronted with such
+awesome experimental difficulties, with no comprehensive mathematical
+theory in sight, we are largely limited otherwise to verbal discourses,
+rationales and theorizing, a hopelessly clumsy tool for the development
+of an adequate understanding of brain function. A little over ten years
+ago Sperry (19) said, “Present day science is quite at a loss even
+to begin to describe the neural events involved in the simplest form
+of mental activity.” This situation has not changed much today. The
+development, study, and understanding of complex high-density cellular
+structures which incorporate characteristics of both the Lillie and
+Pask models may, it is hoped, alleviate this situation. There would
+also be fairly obvious technological applications for such techniques
+if highly developed and which, more than any other consideration, has
+prompted support for this work.
+
+Experiments to date have been devised which demonstrate the following
+basic physical functional characteristics:
+
+    (1) Control of bulk resistivity of electrolytes containing
+        closely-packed, poorly-conducting pellets
+    (2) Circulation of regenerative waves on closed loops
+    (3) Strong coupling between isolated excitable sites
+    (4) Logically-complete wave interactions, including facilitation
+        and annihilation
+    (5) Dendrite growth by electrodeposition in “closed” excitable
+        systems
+    (6) Subthreshold distributed field effects, especially in
+        locally-refractory regions.
+
+In addition, our attention has necessarily been directed to various
+problems of general experimental technique and choice of materials,
+especially as related to stability, fast recovery and long life.
+However, in order to understand the possible significance of, and
+motivation for such experiments, some related modern concepts of
+neurophysiology, histology and psychology will be reviewed very
+briefly. These concepts are, respectively:
+
+    (1) Cellular structure in the central nervous system
+    (2) Short-term or “ephemeral” memory
+    (3) The synapse
+    (4) Inhibition
+    (5) Long-term memory traces or engram
+    (6) Spatially-diffuse temporal association and learning.
+
+
+SOME CONTEMPORARY CONCEPTS
+
+Since we are attempting to duplicate processes other than chemical,
+per se, we will forego any reference to the extensive literature of
+neurochemistry. It should not be surprising though if, at the neglect
+of the fundamental biological processes of growth, reproduction and
+metabolism, it proves possible to imitate some learning mechanisms
+with grossly less complex molecular structures. There is also
+much talk of chemical versus electrical theories and mechanisms in
+neurophysiology. The distinction, when it can be made, seems to hinge
+on the question of the scale of size of significant interactions. Thus,
+“chemical” interactions presumably take place at molecular distances,
+possibly as a result of or subsequent to a certain amount of thermal
+diffusion. “Electrical” interactions, on the other hand, are generally
+understood to imply longer range or larger scale macroscopic fields.
+
+
+1. Cellular Structure
+
+The human brain contains approximately 10¹⁰ neurons to which the
+neuron theory assigns the primary role in central nervous activity.
+These cells occupy, however, a relatively small fraction of the total
+volume. There are, for example, approximately 10 times that number of
+neuroglia, cells of relatively indeterminate function. Each neuron
+(consisting of cell body, dendrites and, sometimes, an axon) comes into
+close contact with the dendrites of other neurones at some thousands
+of places, these synapses and “ephapses” being spaced approximately 5μ
+apart (1). The total number of such apparent junctions is therefore
+of the order of 10¹³. In spite of infinite fine-structure variations
+when viewed with slightly blurred vision, the cellular structure of
+the brain is remarkably homogeneous. In the cortex, at least, the
+extensions of most cells are relatively short, and when the cortex is
+at rest, it appears from the large EEG alpha-rhythms that large numbers
+of cells beat together in unison. Quoting again from Sperry, “In short,
+current brain theory encourages us to try to correlate our subjective
+psychic experience with the activity of relatively homogeneous nerve
+cell units conducting essentially homogeneous impulses, through roughly
+homogeneous cerebral tissue.”
+
+
+2. Short-Term Memory
+
+A train of impulses simply travelling on a long fiber may, for
+example, be regarded as a short-term memory much in the same way as
+a delay line acts as a transient memory in a computer. A similar
+but slightly longer term memory may also be thought of to exist in
+the form of waves circulating in closed loops (23). In fact, it is
+almost universally held today that most significant memory occurs
+in two basic interrelated ways. First of all, such a short-term
+circulating, reverberatory or regenerative memory which, however, could
+not conceivably persist through such things as coma, anesthesia,
+concussion, extreme cold, deep sleep and convulsive seizures and
+thus, secondly, a long-term memory trace which must somehow reside
+in a semipermanent fine-structural change. As Hebb (9) stated, “A
+reverbratory trace might cooperate with a structural change and carry
+the memory until the growth change is made.”
+
+
+3. The Synapse
+
+The current most highly regarded specific conception of the synapse
+is largely due to and has been best described by Eccles (5): “ ...
+the synaptic connections between nerve cells are the only functional
+connections of any significance. These synapses are of two types,
+excitatory and inhibitory, the former type tending to make nerve cells
+discharge impulses, the other to suppress the discharge. There is now
+convincing evidence that in vertebrate synapses each type operates
+through specific chemical transmitter substances ...”. In response to
+a presentation by Hebb (10), Eccles was quoted as saying, “One final
+point, and that is if there is electrical interaction, and we have seen
+from Dr. Estable’s work the complexity of connections, and we now know
+from the electronmicroscopists that there is no free space, only 200
+Å clefts, everywhere in the central nervous system, then everything
+should be electrically interacted with everything else. I think this is
+only electrical background noise and, that when we lift with specific
+chemical connections above that noise we get a significant operational
+system. I would say that there is electrical interaction but it is just
+a noise, a nuisance.” Eccles’ conclusions are primarily based on data
+obtained in the peripheral nervous system and the spinal cord. But
+there is overwhelming reason to expect that cellular interactions in
+the brain are an entirely different affair. For example, “The highest
+centres in the octopus, as in vertebrates and arthropods, contain many
+small neurons. This finding is such a commonplace, that we have perhaps
+failed in the past to make the fullest inquiry into its implications.
+Many of these small cells possess numerous processes, but no axon. It
+is difficult to see, therefore, that their function can be conductive
+in the ordinary sense. Most of our ideas about nervous functioning are
+based on the assumption that each neuron acts essentially as a link in
+some chain of conduction, but there is really no warrant for this in
+the case of cells with many short branches. Until we know more of the
+relations of these processes to each other in the neuropile it would
+be unwise to say more. It is possible that the effective part of the
+discharge of such cells is not as it is in conduction in long pathways,
+the internal circuit that returns through the same fiber, but the
+external circuit that enters other processes, ...” (3).
+
+
+4. Inhibition
+
+The inhibitory chemical transmitter substance postulated by Eccles
+has never been detected in spite of numerous efforts to do so. The
+mechanism(s) of inhibition is perhaps the key to the question of
+cellular interaction and, in one form or another, must be accounted for
+in any adequate theory.
+
+Other rather specific forms of excitation and inhibition interaction
+have been proposed at one time or another. Perhaps the best example is
+the polar neuron of Gesell (8) and, more recently, Retzlaff (18). In
+such a concept, excitatory and inhibitory couplings differ basically
+because of a macroscopic structural difference at the cellular level;
+that is, various arrangements or orientation of intimate cellular
+structures give rise to either excitation or inhibition.
+
+
+5. Long-Term Memory
+
+Most modern theories of semipermanent structural change (or _engrams_,
+as they are sometimes called) look either to the molecular level or to
+the cellular level. Various specific locales for the engram have been
+suggested, including (1) modifications of RNA molecular structure,
+(2) changes of cell size, synapse area or dendrite extensions, (3)
+neuropile modification, and (4) local changes in the cell membrane.
+There is, in fact, rather direct evidence of the growth of neurons or
+their dendrites with use and the diminution or atrophy of dendrites
+with disuse. The apical dendrite of pyramidal neurones becomes thicker
+and more twisted with continuing activity, nerve fibers swell when
+active, sprout additional branches (at least in the spinal cord) and
+presumably increase the size and number of their terminal knobs.
+As pointed out by Konorski (11), the morphological conception of
+plasticity according to which plastic changes would be related to the
+formation and multiplication of new synaptic junctions goes back at
+least as far as Ramon y Cajal in 1904. Whatever the substrate of the
+memory trace, it is, at least in adults, remarkably immune to extensive
+brain damage and as Young (24) has said: “ ... this question of the
+nature of the memory trace is one of the most obscure and disputed in
+the whole of biology.”
+
+
+6. Field Effects and Learning
+
+First, from Boycott and Young (3), “The current conception, on which
+most discussions of learning still concentrate, is that the nervous
+system consists essentially of an aggregate of chains of conductors,
+linked at key points by synapses. This reflex conception, springing
+probably from Cartesian theory and method, has no doubt proved of
+outstanding value in helping us to analyse the actions of the spinal
+cord, but it can be argued that it has actually obstructed the
+development of understanding of cerebral function.”
+
+Most observable evidence of learning and memory is extremely complex
+and its interpretation full of traps. Learning in its broadest sense
+might be detected as a semipermanent change of behavior pattern brought
+about as a result of experience. Within that kind of definition, we
+can surely identify several distinctly different types of learning,
+presumably with distinctly different kinds of mechanisms associated
+with each one. But, if we are to stick by our definition of a condition
+of semipermanent change of behavior as a criterion for learning, then
+we may also be misled into considering the development of a neurosis,
+for example, as learning, or even a deep coma as learning.
+
+When we come to consider field effects, current theories tend to get
+fairly obscure, but there seems to be an almost universal recognition
+of the fact that such fields are significant. For example, Morrell
+(16) says in his review of electrophysiological contributions to the
+neural basis of learning, “A growing body of knowledge (see reviews
+by Purpura, Grundfest, and Bishop) suggests that the most significant
+integrative work of the central nervous system is carried on in graded
+response elements—elements in which the degree of reaction depends upon
+stimulus intensity and is not all-or-none, which have no refractory
+period and in which continuously varying potential changes of either
+sign occur and mix and algebraically sum.” Gerard (7) also makes a
+number of general comments along these lines. “These attributes of
+a given cell are, in turn, normally controlled by impulses arising
+from other regions, by fields surrounding them—both electric and
+chemical—electric and chemical fields can strongly influence the
+interaction of neurones. This has been amply expounded in the case of
+the electric fields.”
+
+Learning situations involving “punishment” and “reward” or,
+subjectively, “pain” and “pleasure” may very likely be associated
+with transient but structurally widespread field effects. States of
+distress and of success seem to exert a lasting influence on behavior
+only in relation to _simultaneous_ sensory events or, better yet,
+sensory events just immediately _preceding_ in time. For example, the
+“anticipatory” nature of a conditioned reflex has been widely noted
+(21). From a structural point of view, it is as if recently active
+sites regardless of location or function were especially sensitive to
+extensive fields. There is a known inherent electrical property of both
+nerve membrane and passive iron surface that could hold the answer to
+this mechanism of spatially-diffuse temporal association; namely, the
+surface resistance drops to less than 1 per cent of its resting value
+during the refractory period which immediately follows activation.
+
+
+EXPERIMENTAL TECHNIQUE
+
+In almost all experiments, the basic signal-energy mechanism employed
+has been essentially that one studied most extensively by Lillie (12),
+Bonhoeffer (2), Yamagiwa (22), Matumoto and Goto (14) and others,
+_i.e._, activation, impulse propagation and recovery on the normally
+passive surface of a piece of iron immersed in nitric acid or of
+cobalt in chromic acid (20). The iron we have used most frequently
+is of about 99.99% purity, which gives performance more consistent
+than but similar to that obtained using cleaned “coat-hanger” wires.
+The acid used most frequently by us is about 53-55% aqueous solution
+by weight, substantially more dilute than that predominantly used by
+previous investigators. The most frequently reported concentration has
+been 68-70%, a solution which is quite stable and, hence, much easier
+to work with in open containers than the weaker solutions, results in
+very fast waves but gives, at room temperatures, a very long refractory
+period (typically, 15 minutes). A noble metal (such as silver, gold
+or platinum) placed in contact with the surface of the iron has a
+stabilizing effect (14) presumably through the action of local currents
+and provides a simple and useful technique whereby, with dilution,
+both stability and fast recovery (1 second) can be achieved in simple
+demonstrations and experiments.
+
+Experiments involving the growth by electrodeposition and study of
+metallic dendrites are done with an eye toward electrical, physical
+and chemical compatibility with the energy-producing system outlined
+above. Best results to date (from the standpoints of stability,
+non-reactivity, and morphological similarity to neurological
+structures) have been obtained by dissolving various amounts of gold
+chloride salt in 53-55% HNO₃.
+
+An apparatus has been devised and assembled for the purpose of
+containing and controlling our primary experiments. (See Figure 1).
+Its two major components are a test chamber (on the left in Figure
+1) and a fluid exchanger (on the right). In normal operation the
+test chamber, which is very rigid and well sealed after placing the
+experimental assembly inside, is completely filled with electrolyte
+(or, initially, an inert fluid) to the exclusion of all air pockets and
+bubbles. Thus encapsulated, it is possible to perform experiments which
+would otherwise be impossible due to instability. The instability which
+plagues such experiments is manifested in copious generation of bubbles
+on and subsequent rapid disintegration of all “excitable” material
+(_i.e._, iron). Preliminary experiments indicated that such “bubble
+instability” could be suppressed by constraining the volume available
+to expansion. In particular, response and recovery times can now be
+decreased substantially and work can proceed with complex systems of
+interest such as aggregates containing many small iron pellets.
+
+The test chamber is provided with a heater (and thermostatic control)
+which makes possible electrochemical impulse response and recovery
+times comparable to those of the nervous system (1 to 10 msec). The
+fluid-exchanger is so arranged that fluid in the test chamber can be
+arbitrarily changed or renewed by exchange within a rigid, sealed,
+completely liquid-filled (“isochoric”) loop. Thus, stability can
+be maintained for long periods of time and over a wide variety of
+investigative or operating conditions.
+
+Most of the parts of this apparatus are made of stainless steel and
+are sealed with polyethylene and teflon. There is a small quartz
+observation window on the test chamber, two small lighting ports, a
+pressure transducer, thermocouple, screw-and-piston pressure actuator
+and umbilical connector for experimental electrical inputs and outputs.
+
+
+BASIC EXPERIMENTS
+
+The basic types of experiments described in the following sections
+are numbered for comparison to correspond roughly to related
+neurophysiological concepts summarized in the previous section.
+
+
+1. Cellular Structure
+
+The primary object of our research is the control and determination of
+dynamic behavior in response to electrical stimulation in close-packed
+aggregates of small pellets submerged in electrolyte. Typically, the
+aggregate contains (among other things) iron and the electrolyte
+contains nitric acid, this combination making possible the propagation
+of electrochemical surface waves of excitation through the body of
+the aggregate similar to those of the Lillie iron-wire nerve model.
+The iron pellets are imbedded in and supported by a matrix of small
+dielectric (such as glass) pellets. Furthermore, with the addition
+of soluble salts of various noble metals to the electrolyte, long
+interstitial dendritic or fibrous structures of the second metal can
+be formed whose length and distribution change by electrodeposition in
+response to either internal or externally generated fields.
+
+[Illustration: Figure 1—Test chamber and fluid exchanger]
+
+Coupling between isolated excitable (iron) sites is greatly affected
+by the fine structure and effective bulk resistivity of the glass and
+fluid medium which supports and fills the space between such sites.
+In general (see Section 3, following) it is necessary, to promote
+strong coupling between small structures, to impede the “short-circuit”
+return flow of current from an active or excited surface, through
+the electrolyte and back through the dendritic structure attached
+to the same excitable site. This calls for control (increase) of
+the bulk resistivity, preferably by means specifically independent
+of electrolyte composition, which relates to and affects surface
+phenomena such as recovery (_i.e._, the “refractory” period). Figure 2
+illustrates the way in which this is being done, _i.e._, by appropriate
+choice of particle size distributions. The case illustrated shows
+the approximate proper volume ratios for maximum resistivity in a
+two-size-phase random mixture of spheres.
+
+
+2. Regenerative Loops
+
+Figure 3 shows an iron loop (about 2-inch diameter) wrapped with a
+silver wire helix which is quite stable in 53-55% acid and which
+will easily support a circulating pattern of three impulses. For
+demonstration, unilateral waves can be generated by first touching the
+iron with a piece of zinc (which produces two oppositely travelling
+waves) and then blocking one of them with a piece of platinum or a
+small platinum screen attached to the end of a stick or wand. Carbon
+blocks may also be used for this purpose.
+
+The smallest regenerative or reverberatory loop which we are at present
+able to devise is about 1 mm in diameter. Multiple waves, as expected,
+produce stable patterns in which all impulses are equally spaced. This
+phenomenon can be related to the slightly slower speed characteristic
+of the relative refractory period as compared with a more fully
+recovered zone.
+
+[Illustration]
+
+[Illustration: Figure 2—Conductivity control—mixed pellet-size
+aggregates]
+
+[Illustration: Figure 3—Regenerative or reverberatory loop]
+
+
+3. Strong Coupling
+
+If two touching pieces of iron are placed in a bath of nitric acid, a
+wave generated on one will ordinarily spread to the other. As is to be
+expected, a similar result is obtained if the two pieces are connected
+through an external conducting wire. However, if they are isolated,
+strong coupling does not ordinarily occur, especially if the elements
+are small in comparison with a “critical size,” σ/ρ where σ is the
+surface resistivity of passive iron surface (in Ω-cm²) and ρ is the
+volume resistivity of the acid (in Ω-cm). A simple and informative
+structure which demonstrates the essential conditions for strong
+electrical coupling between isolated elements of very small size may
+be constructed as shown in Figure 4. The dielectric barrier insures
+that charge transfer through one dipole must be accompanied by an equal
+and opposite transfer through the surfaces of the other dipole. If the
+“inexcitable” silver tails have sufficiently high conductance (_i.e._,
+sufficiently large surface area, hence preferably, dendrites), strong
+coupling will occur, just as though the cores of the two pieces of iron
+were connected with a solid conducting wire.
+
+[Illustration: Figure 4]
+
+[Illustration: Figure 5—Electrochemical excitatory-inhibitory
+interaction cell]
+
+
+4. Inhibitory Coupling
+
+If a third “dipole” is inserted through the dielectric membrane in
+the opposite direction, then excitation of this isolated element
+tends to inhibit the response which would otherwise be elicited by
+excitation of one of the parallel dipoles. Figure 5 shows the first
+such “logically-complete” interaction cell successfully constructed and
+demonstrated. It may be said to behave as an elementary McCulloch-Pitts
+neuron (15). Further analysis shows that similar structures
+incorporating many dipoles (both excitatory and inhibitory) can be made
+to behave as general “linear decision functions” in which all input
+weights are approximately proportional to the total size or length of
+their corresponding attached dendritic structures.
+
+
+5. Dendrite Growth
+
+Figure 6 shows a sample gold dendrite grown by electrodeposition
+(actual size, about 1 mm) from a 54% nitric acid solution to which gold
+chloride was added. When such a dendrite is attached to a piece of
+iron (both submerged), activation of the excitable element produces a
+field in such a direction as to promote further growth of the dendritic
+structure. Thus, if gold chloride is added to the solution used in
+the elementary interaction cells described above, all input influence
+“weights” tend to increase with use and, hence, produce a plasticity of
+function.
+
+
+6. Field Effects in Locally-Refractory Regions
+
+Our measurements indicate that, during the refractory period following
+excitation, the surface resistance of iron in nitric acid drops to
+substantially less than 1% of its resting value in a manner reminiscent
+of nerve membranes (4). Thus, if a distributed or gross field exists
+at any time throughout a complex cellular aggregate, concomitant
+current densities in locally-refractive regions will be substantially
+higher than elsewhere and, if conditions appropriate to dendrite
+growth exist (as described above) growth rates in such regions will
+also be substantially higher than elsewhere. It would appear that, as
+a result, recently active functional couplings (in contrast to those
+not associated with recent neural activity) should be significantly
+altered by widely distributed fields or massive peripheral shocks. This
+mechanism might thus explain the apparent ability of the brain to form
+specific temporal associations in response to spatially-diffuse effects
+such as are generated, for example, by the pain receptors.
+
+[Illustration: (a)]
+
+[Illustration: (b)
+
+Figure 6—Dendritic structures, living and non-living. (a) Cat dendrite
+trees (from Bok, “Histonomy of the Cerebral Cortex,” Elsevier, 1959);
+(b) Electrodeposited gold dendrite tree.]
+
+
+SUMMARY
+
+An attempt is being made to develop meaningful electrochemical model
+techniques which may contribute toward a clearer understanding of
+cortical function. Two basic phenomena are simultaneously employed
+which are variants of (1) the Lillie iron-wire nerve model, and (2)
+growth of metallic dendrites by electrodeposition. These phenomena are
+being induced particularly within dense cellular aggregates of various
+materials whose interstitial spaces are flooded with liquid electrolyte.
+
+
+REFERENCES
+
+    1. Bok, S. T.,
+       “Histonomy of the Cerebral Cortex,”
+        Amsterdam, London:Elsevier Publishing Co., New York:Princeton,
+        1959
+
+    2. Bonhoeffer, K. F.,
+       “Activation of Passive Iron as a Model for the Excitation of
+        Nerve,”
+       _J. Gen. Physiol._ =32=:69-91 (1948).
+           This paper summarizes work carried out during 1941-1946
+           at the University of Leipzig, and published during the
+           war years in German periodicals.
+
+    3. Boycott, B. B., and Young, J. Z.,
+       “The Comparative Study of Learning,”
+        S. E. B. Symposia, No. IV
+       “Physiological Mechanisms in Animal Behavior,”
+        Cambridge: University Press, USA:Academic Press, Inc., 1950
+
+    4. Cole, K. S., and Curtis, H. J.,
+       “Electric Impedance of the Squid Giant Axon During Activity,”
+       _J. Gen. Physiol._ =22=:649-670 (1939)
+
+    5. Eccles, J. C.,
+       “The Effects of Use and Disuse of Synaptic Function,”
+       “Brain Mechanisms and Learning—A Symposium,”
+        organized by the Council for International Organizations of
+        Medical Science, Oxford:Blackwell Scientific Publications, 1961
+
+    6. Franck, U. F.,
+       “Models for Biological Excitation Processes,”
+       “Progress in Biophysics and Biophysical Chemistry,”
+        J. A. V. Butler, ed., London and New York:Pergamon Press,
+        pp. 171-206, 1956
+
+    7. Gerard, R. W.,
+       “Biological Roots of Psychiatry,”
+       _Science_ =122 (No. 3162)=:225-230 (1955)
+
+    8. Gesell, R.,
+       “A Neurophysiological Interpretation of the Respiratory Act,”
+       _Ergedn. Physiol._ =43:=477-639 (1940)
+
+    9. Hebb, D. O.,
+      “The Organization of Behavior, A Neuropsychological Theory,”
+       New York:John Wiley and Sons, 1949
+
+    10. Hebb, D. O.,
+        “Distinctive Features of Learning in the Higher Animal,”
+        “Brain Mechanisms and Learning—A Symposium,”
+         organized by the Council for International Organizations of
+         Medical Science, Oxford:Blackwell Scientific Publications, 1961
+
+    11. Konorski, J.,
+        “Conditioned Reflexes and Neuron Organization,”
+         Cambridge:Cambridge University Press, 1948
+
+    12. Lillie, R. S.,
+        “Factors Affecting the Transmission and Recovery in the Passive
+         Iron Nerve Model,”
+        _J. Gen. Physiol._ =4=:473 (1925)
+
+    13. Lillie, R. S., _Biol. Rev._ =16=:216 (1936)
+
+    14. Matumoto, M., and Goto, K.,
+        “A New Type of Nerve Conduction Model,”
+        _The Gurma Journal of Medical Sciences_ =4(No. 1)= (1955)
+
+    15. McCulloch, W. S., and Pitts, W.,
+        “A Logical Calculus of the Ideas Immanent in Nervous Activity,”
+        _Bulletin of Mathematical Biophysics_ =5=:115-133 (1943)
+
+    16. Morrell, F.,
+        “Electrophysiological Contributions to the Neural
+         Basis of Learning,”
+        _Physiological Reviews_ =41(No. 3)= (1961)
+
+    17. Pask, G.,
+        “The Growth Process Inside the Cybernetic Machine,”
+        _Proc. 2nd Congress International Association Cybernetics_,
+         Gauthier-Villars, Paris:Namur, 1958
+
+    18. Retzlaff, E.,
+        “Neurohistological Basis for the Functioning of Paired
+         Half-Centers,”
+        _J. Comp. Neurology_ =101=:407-443 (1954)
+
+    19. Sperry, R. W.,
+        “Neurology and the Mind-Brain Problem,”
+        _Amer. Scientist_ =40(No. 2)=: 291-312 (1952)
+
+    20. Tasaki, I., and Bak, A. F.,
+       _J. Gen. Physiol._ =42=:899 (1959)
+
+    21. Thorpe, W. H.,
+        “The Concepts of Learning and Their Relation to Those of
+         Instinct,”
+         S. E. B. Symposia, No. IV,
+        “Physiological Mechanisms in Animal Behavior,”
+         Cambridge:University Press, USA:Academic Press, Inc., 1950
+
+    22. Yamagiwa, K.,
+        “The Interaction in Various Manifestations
+         (Observations on Lillie’s Nerve Model),”
+        _Jap. J. Physiol._ =1=:40-54 (1950)
+
+    23. Young, J. Z.,
+        “The Evolution of the Nervous System and of the
+         Relationship of Organism and Environment,”
+         G. R. de Beer, ed.,
+        “Evolution,”
+         Oxford:Clarendon Press, pp. 179-204, 1938
+
+    24. Young, J. Z.,
+        “Doubt and Certainty in Science, A Biologist’s Reflections
+         on the Brain,”
+         New York:Oxford Press, 1951
+
+
+
+
+Multi-Layer Learning Networks
+
+
+               R. A. STAFFORD
+
+    _Philco Corp., Aeronutronic Division
+         Newport Beach, California_
+
+
+INTRODUCTION
+
+This paper is concerned with the problem of designing a network of
+linear threshold elements capable of efficiently adapting its various
+sets of weights so as to produce a prescribed input-output relation.
+It is to accomplish this adaptation by being repetitively presented
+with the various inputs along with the corresponding desired outputs.
+We will not be concerned here with the further requirement of various
+kinds of ability to “generalize”—_i.e._, to tend to give correct
+outputs for inputs that have not previously occurred when they are
+similar in some transformed sense to other inputs that have occurred.
+
+In putting forth a model for such an adapting or “learning” network, a
+requirement is laid down that the complexity of the adaption process
+in terms of interconnections among elements needed for producing
+appropriate weight changes, should not greatly exceed that already
+required to produce outputs from inputs with a static set of weights.
+In fact, it has been found possible to use the output-from-input
+computing capacity of the network to help choose proper weight changes
+by observing the effect on the output of a variety of possible weight
+changes.
+
+No attempt is made here to defend the proposed network model on
+theoretical grounds since no effective theory is known at present.
+Instead, the plausibility of the various aspects of the network model,
+combined with empirical results must suffice.
+
+
+SINGLE ELEMENTS
+
+To simplify the problem it is assumed that the network receives a set
+of two-valued inputs, x₁, x₂, ..., xₙ, and is required to produce only
+a single two-valued output, y. It is convenient to assign the numerical
+quantities +1 and -1 to the two values of each variable.
+
+The simplest network would consist of a single linear threshold
+element with a set of weights, c₀, c₁, c₂, ..., cₙ. These determine
+the output-input relation or function so that y is +1 or -1 according
+as the quantity, c₀ + c₁x₁ + c₂x₂ + ... + cₙxₙ, is positive or not,
+respectively. It is possible for such a single element to exhibit an
+adaptive behavior as follows. If, for a given set, x₁, x₂, ..., xₙ, the
+output, y, is correct, then make no changes to the weights. Otherwise
+change the weights according to the equations
+
+Δc₀ = y* Δcᵢ = y*xᵢ, i = 1,2, ...,n
+
+where y* is the desired output.
+
+It has been shown by a number of people that the weights of such an
+element are assured of arriving at a set of values which produce the
+correct output-input relation after a sufficient number of errors,
+provided that such a set exists. An upper bound on the number of
+possible errors can be given which depends only on the initial weight
+values and the logical function to be learned. This does not, however,
+solve our network problem for two reasons.
+
+First, as the number, n, of inputs gets large, the number of errors
+to be expected for most functions which can be learned increases to
+unreasonable values. For example, for n = 6, most such functions
+result in 500 to 1000 errors compared to an average of 32 errors to be
+expected in a perfect learning device.
+
+Second, and more important, the fraction of those logical functions
+which can be generated in a single element becomes vanishingly small as
+n increases. For example, at n = 6 less than one in each three trillion
+logical functions is so obtainable.
+
+
+NETWORKS OF ELEMENTS
+
+It can be demonstrated that if a sufficiently large number of linear
+threshold elements is used, with the outputs of some being the inputs
+of others, then a final output can be produced which is any desired
+logical function of the inputs. The difficulty in such a network lies
+in the fact that we are no longer provided with a knowledge of the
+correct output for each element, but only for the final output. If the
+final output is incorrect there is no obvious way to determine which
+sets of weights should be altered.
+
+As a result of considerable study and experimentation at Aeronutronic,
+a network model has been evolved which, it is felt, will get around
+these difficulties. It consists of four basic features which will now
+be described.
+
+
+Positive Interconnecting Weights
+
+It is proposed that all weights in elements attached to inputs which
+come from other elements in the network be restricted to positive
+values. (Weights attached to the original inputs to the network, of
+course, must be allowed to be of either sign.) The reason for such a
+restriction is this. If element 1 is an input to element 2 with weight
+c₁₂, element 2 to element 3 with weight c₂₃, _etc._, then the sign of
+the product, c₁₂c₂₃ ..., gives the sense of the effect of a change in
+the output of element 1 on the final element in the chain (assuming
+this is the only such chain between the two elements). If these various
+weights were of either possible sign, then a decision as to whether or
+not to change the output in element 1 to help correct an error in the
+final element would involve all weights in the chain. Moreover, since
+there would in general be a multiplicity of such chains, the decision
+is rendered impossibly difficult.
+
+The above restriction removes this difficulty. If the output of any
+element in the network is changed, say, from -1 to +1, the effect on
+the final element, if it is affected at all, is in the same direction.
+
+It should be noted that this restriction does not seriously affect
+the logical capabilities of a network. In fact, if a certain logical
+function can be achieved in a network with the use of weights of
+unrestricted sign, then the same function can be generated in another
+network with only positive interconnecting weights and, at worst, twice
+the number of elements. In the worst case this is done by generating
+in the restricted network both the output and its complement for each
+element of the unrestricted network. (It is assumed that there are no
+loops in the network.)
+
+
+A Variable Bias
+
+The central problem in network learning is that of determining, for
+a given input, the set of elements whose outputs can be altered so
+as to correct the final element, and which will do the least amount
+of damage to previous adaptations to other inputs. Once this set has
+been determined, the incrementing rule given for a single element will
+apply in this case as well (subject to the restriction of leaving
+interconnecting weights positive), since the desired final output
+coincides with that desired for each of the elements to be changed
+(because of positive interconnecting weights).
+
+In the process of arriving at such a decision three factors need to be
+considered. Elements selected for change should tend to be those whose
+output would thereby be affected for a minimum number of other possible
+inputs. At the same time it should be ascertained that a change in
+each of the elements in question does indeed contribute significantly
+towards correcting the final output. Finally, a minimum number of such
+elements should be used.
+
+It would appear at first that this kind of decision is impossible to
+achieve if the complexity of the decision apparatus is kept comparable
+to that of the basic input-output network as mentioned earlier.
+However, in the method to be described it is felt that a reasonable
+approximation to these requirements will be achieved without an undue
+increase in complexity.
+
+It is assumed that in addition to its normal inputs, each element
+receives a variable input bias which we can call b. The output of every
+element should then be determined by the sign of the usual weighted
+sum of its inputs plus this bias quantity. This bias is to be the same
+for each element of the network. If b = 0 the network will behave
+as before. However, if b is increased gradually, various elements
+throughout the network will commence changing from -1 to +1, with one
+or a few changing at any one time as a rule. If b is decreased, the
+opposite will occur.
+
+Now suppose that for a given input the final output ought to be +1 but
+actually is -1. Assume that b is then raised so high that this final
+output is corrected. Then commence a gradual decline in b. Various
+elements may revert to -1, but until the final output does, no weights
+are changed. When the final output does revert to -1, it is due to an
+element’s having a sum (weighted sum plus bias) which just passed down
+through zero. This then caused a chain effect of changing elements
+up to the final element, but presumably this element is the only one
+possessing a zero sum. This can then be the signal for the weights
+on an element to change—a change of final output from right to wrong
+accompanied simultaneously by a zero sum in the element itself.
+
+After such a weight change, the final output will be correct once more
+and the bias can again proceed to fall. Before it reaches zero, this
+process may occur a number of times throughout the network. When the
+bias finally stands at zero with the final output correct, the network
+is ready for the next input. Of course if -1 is desired, the bias will
+change in the opposite direction.
+
+It is possible that extending the weight change process a little past
+the zero bias level may have beneficial results. This might increase
+the life expectancy of each learned input-output combination and
+thereby reduce the total number of errors. This is because the method
+used above can stop the weight correction process so that even though
+the final output is correct, some elements whose output are essential
+to the final output have sums close to zero, which are easily changed
+by subsequent weight changes.
+
+It will be noted that this method conforms to all three considerations
+mentioned previously. First, by furnishing each element the same bias,
+and by not changing weights until the final output becomes incorrect
+with dropping bias, there is a strong tendency to select elements
+which, with b = 0, would have sums close to zero. But the size of the
+sum in an element is a good measure of the amount of damage done to
+an element for other inputs if its current output is to be changed.
+Second, it is obvious that each element changed has had a demonstrable
+effect on the final output. Finally, there will be a clear tendency to
+change only a minimum of elements because changes never occur until the
+output clearly requires a change.
+
+On the other hand this method requires little more added complexity to
+the network than it already has. Each element requires a bias, an error
+signal, and the desired final output, these things being uniform for
+all elements in a network. Some external device must manipulate the
+bias properly, but this is a simple behavior depending only on an error
+signal and the desired final output—not on the state of individual
+elements in the network. What one has, then, is a network consisting
+of elements which are nearly autonomous as regards their decisions
+to change weights. Such a scheme appears to be the only way to avoid
+constructing a central weight-change decision apparatus of great
+complexity. This rather sophisticated decision is made possible by
+utilizing the computational capabilities the network already possesses
+in producing outputs from inputs.
+
+It should be noted here that this varying bias method requires that
+the variable bias be furnished to just those elements which have
+variable weights and to no others. Any fixed portion of the network,
+such as preliminary layers or final majority function for example,
+must operate independently of the variable bias. Otherwise, the final
+output may go from right to wrong as the bias moves towards zero and no
+variable-weight element be to blame. In such a case the network would
+be hung up.
+
+
+Logical Redundancy in the Network
+
+A third aspect of the network model is that for all the care taken
+in the previous steps, they will not suffice in settling quickly to
+a set of weights that will generate the required logical function
+unless there is a great multiplicity of ways in which this can be done.
+This is to say that a learning network needs to have an excess margin
+of weights and elements beyond the minimum required to generate the
+functions which are to be learned.
+
+This is analogous to the situation that prevails for a single element
+as regards the allowed range of values on its weights. It can be shown
+for example, that any function for n=6 that can be generated by a
+single element can be obtained with each weight restricted to the range
+of integer values -9,-8, ..., +9. Yet no modification of the stated
+weight change rule is known which restricts weight values to these and
+yet has any chance of ever being learned for most functions.
+
+
+Fatigued Elements
+
+It would appear from some of the preliminary results of network
+simulations that it may be useful to have elements become “fatigued”
+after undergoing an excessive number of weight changes. Experiments
+have been performed on simplifications of the model described so far
+which had the occasional result that a small number of elements came
+to a state where they received most of the weight increments, much
+to the detriment of the learning process. In such cases the network
+behaves as if it were composed of many fewer adjustable elements. In a
+sense this is asking each element to maintain a record of the data it
+is being asked to store so that it does not attempt to exceed its own
+information capacity.
+
+It is not certain just how this fatigue factor should enter in the
+element’s actions, but if it is to be compatible with the variable bias
+method, this fatigue factor must enter into the element’s response to
+a changing bias. Once an element changes state with zero sum at the
+same time that the final output becomes wrong, incrementing must occur
+if the method is to work. Hence a “fatigued” element must respond less
+energetically to a change of bias, perhaps with a kind of variable
+factor to be multiplied by the bias term.
+
+
+NETWORK STRUCTURE
+
+It is felt that the problem of selecting the structure of
+interconnections for a network is intimately connected to the
+previously mentioned problem of generalization. Presumably a given
+type of generalization can be obtained by providing appropriate fixed
+portions of the network and an appropriate interconnection structure
+for the variable portion. However, for very large networks, it is
+undoubtedly necessary to restrict the complexity so that it can be
+specified by relatively simple rules. Since very little is known about
+this quite important problem, no further discussion will be attempted
+here.
+
+
+COMPUTER SIMULATION RESULTS
+
+A computer simulation of some of the network features previously
+described has been made on an IBM 7090. Networks with an excess of
+elements and with only positive interconnecting weights were used.
+However, in place of the variable bias method, a simple choice of the
+element of sum closest to, and on the wrong side of, zero was made
+without regard to the effectiveness of the element in correcting the
+final output. No fatigue factors were used.
+
+The results of these simulations are very encouraging, but at the same
+time indicate the need for the more sophisticated methods. No attempt
+will be made here to describe the results completely.
+
+In one series of learning experiments, a 22-element network was used
+which had three layers, 10 elements on the first, 11 on the second, and
+1 on the third. The single element on the third was the final output,
+and was a fixed majority function of the 11 elements in the second
+layer. These in turn each received inputs from each of the 10 on the
+first layer and from each of the 6 basic inputs. The 10 on the first
+layer each received only the 6 basic inputs. A set of four logical
+functions, A, B, C, and D, was used. Function A was actually a linear
+threshold function which could be generated by the weights 8, 7, 6, 5,
+4, 3, 2, functions B and C were chosen by randomly filling in a truth
+table, while D was the parity function.
+
+                TABLE I
+    -------+--------+---------+-------
+       A   |    B   |     C   |    D
+     r   e |  r   e |   r   e |  r   e
+    -------+--------+---------+-------
+     5  54 |  8 100 |  11 101 |  4  52
+     4  37 |  9  85 |   4  60 |  5  62
+     4  44 |  6  72 |   9  85 |  6  56
+    -------+--------+---------+-------
+
+Table I gives the results of one series of runs with these functions
+and this network, starting with various random initial weights. The
+quantity, r, is the number of complete passes through the 64-entry
+truth table before the function was completely learned, while e is
+the total number of errors made. In evaluating the results it should
+be noted that an ideal learning device would make an average of 32
+errors altogether on each run. The totals recorded in these runs are
+agreeably close to this ideal. As expected, the linear threshold
+function is the easiest to learn, but it is surprising that the
+parity function was substantially easier than the two randomly chosen
+functions. Table II gives a chastening result of the same experiment
+with all interconnecting weights removed except that the final element
+is a fixed majority function of the other 21 elements. Thus there was
+adaptation on one layer only. As can be seen Table I is hardly better
+than Table II so that the value of variable interconnecting weights was
+not being fully realized. In a later experiment the number of elements
+was reduced to 12 elements and the same functions used. In this case
+the presence of extra interconnecting weights actually proved to be
+a hindrance! However a close examination of the incrementing process
+brought out the fact that the troublesome behavior was due to the
+greater chance of having only a few (often only one) elements do nearly
+all the incrementing. It is expected that the use of the additional
+refinements discussed herein will produce a considerable improvement
+in bringing out the full power of adaptation in multiple layers of a
+network.
+
+                TABLE II
+    -------+--------+---------+-------
+       A   |    B   |    C    |   D
+     r   e |  r   e |  r    e | r   e
+    -------+--------+---------+-------
+     7  47 | 18 192 |  8  110 | 4  48
+     3  40 |  7  69 | 10   98 | 6  68
+     4  43 |  7  82 |  4   47 | 6  46
+    -------+--------+---------+-------
+
+
+FUTURE PROBLEMS
+
+Aside from the previous question of deciding on network structure,
+there are several other questions that remain to be studied in learning
+networks.
+
+There is the question of requiring more than a single output from a
+network. If, say, two outputs are required for a given input, one
++1 and the other -1, this runs into conflict with the incrementing
+process. Changes that aid one output may act against the other.
+Apparently the searching process depicted before with a varying bias
+must be considerably refined to find weight changes which act on
+all the outputs in the required way. This is far from an academic
+question because there will undoubtedly be numerous cases in which
+the greatest part of the input-output computation will have shared
+features for all output variables. Only at later levels do they need to
+be differentiated. Hence it is necessary to envision a single network
+producing multiple outputs rather than a separate network for each
+output variable if full efficiency is to be achieved.
+
+Another related question is that of using input variables that are
+either many-, or continuous-, valued rather than two-valued. No
+fundamental difficulties are discernible in this case, but the matter
+deserves some considerable study and experimentation.
+
+Another important question involves the use of a succession of inputs
+for producing an output. That is, it may be useful to allow time to
+enter into the network’s logical action, thus giving it a “dynamic” as
+well as “static” capability.
+
+
+
+
+Adaptive Detection of Unknown Binary Waveforms
+
+
+               J. J. SPILKER, JR.
+
+    _Philco Western Development Laboratories
+             Palo Alto, California_
+
+    This work was supported by the Philco WDL
+    Independent Development Program. This paper,
+    submitted after the Symposium, represents a
+    more detailed presentation of some of the
+    issues raised in the discussion sessions at the
+    Symposium and hence, constitutes a worthwhile
+    addition to the Proceedings.
+
+
+INTRODUCTION
+
+One of the most important objectives in processing a stream of
+data is to determine and detect the presence of any invariant or
+quasi-invariant “features” in that data stream. These features are
+often initially unknown and must be “learned” from the observations.
+One of the simplest features of this form is a finite length signal
+which occurs repetitively, but not necessarily periodically with time,
+and has a waveshape that remains invariant or varies only slowly with
+time.
+
+In this discussion, we assume that the data stream has been
+pre-processed, perhaps by a detector or discriminator, so as to exhibit
+this type of repetitive (but unknown) waveshape or signal structure.
+The observed signal, however, is perturbed by additive noise or other
+disturbances. It is desired to separate the quasi-invariance of the
+data from the truly random environment. The repetitive waveform may
+represent, for example, the transmission of an unknown sonar or radar,
+a pulse-position modulated noise-like waveform, or a repeated code word.
+
+The problem of concern is to estimate the signal waveshape and to
+determine the time of each signal occurrence. We limit this discussion
+to the situation where only a single repetitive waveform is present
+and the signal sample values are binary. The observed waveform is
+assumed to be received at low signal-to-noise ratio so that a single
+observation of the signal (even if one knew precisely the arrival time)
+is not sufficient to provide a good estimate of the signal waveshape.
+The occurrence time of each signal is assumed to be random.
+
+
+THE ADAPTIVE DETECTION MACHINE
+
+The purpose of this note is to describe very briefly a machine[2] which
+has been implemented to recover the noise-perturbed binary waveform.
+A simplified block diagram of the machine is shown in Figure 1. The
+experimental machine has been designed to operate on signals of 10³
+samples duration.
+
+[2] The operation of this machine is described in substantially greater
+detail in J. J. Spilker, Jr., D. D. Luby, R. D. Lawhorn, “Adaptive
+Binary Waveform Detection,” Philco Western Development Laboratories,
+Communication Sciences Department, TR #75, December 1963.
+
+Each analog input sample enters the machine at left and may either
+contain a signal sample plus noise or noise alone. In order to permit
+digital operation in the machine, the samples are quantized in a
+symmetrical three-level quantizer. The samples are then converted
+to vector form, _e.g._, the previous 10³ samples form the vector
+components. A new input vector, ⮕Y⁽ⁱ⁾, is formed at each sample instant.
+
+Define the signal sample values as s₁, s₂, ..., sₙ. The observed vector
+Y⁽ⁱ⁾ is then either (a) perfectly centered signal plus noise, (b)
+shifted signal plus noise, or (c) noise alone.
+
+             { (s₁, s₂, ..., sₙ) + (n₁, n₂, ..., nₙ)             (a)
+    (Y⁽ⁱ⁾)ᵗ = { (0, ..., s₁, s₂, ..., sₙ₋ⱼ) + (n₁, n₂, ..., nₙ)   (b)
+             { (0 ... 0) + (n₁, n₂, ..., nₙ)                     (c)
+
+At each sample instant, two measurements are made on the input
+vector, an energy measurement ‖Y⁽ⁱ⁾‖² and a polarity coincidence
+cross-correlation with the present estimate of the signal vector stored
+in memory. If the weighted sum of the energy and cross-correlation
+measurements exceeds the present threshold value Γᵢ, the input vector
+is accepted as containing the signal (properly shifted in time), and
+the input vector is added to the memory. The adaptive memory has 2^{Q}
+levels, 2^{Q-1} positive levels, 1 zero level and 2^{Q-1}-1 negative
+levels. New contributions are made to the memory by normal vector
+addition except that saturation occurs when a component value is at the
+maximum or minimum level.
+
+The acceptance or rejection of a given input vector is based on a
+hypersphere decision boundary. The input vector is accepted if the
+weighted sum γᵢ exceeds the threshold Γᵢ
+
+    γᵢ = Y⁽ⁱ⁾∙M⁽ⁱ⁾ + α‖Y⁽ⁱ⁾‖² ⩾ Γᵢ.
+
+[Illustration: Figure 1—Block diagram of the adaptive binary waveform
+detector]
+
+Geometrically, we see that the input vector is accepted if it falls on
+or outside of a hypersphere centered at ⮕C⁽ⁱ⁾ = -⮕M⁽ⁱ⁾/2α having radius
+squared
+
+              Γ⁽ⁱ⁾  ‖M⁽ⁱ⁾‖²
+    [r⁽ⁱ⁾]² = ——— + —————— .
+               α    (2α)²
+
+Both the center and radius of this hypersphere change as the machine
+adapts. The performance and optimality of hypersphere-type decision
+boundaries have been _discussed in related work_ by Glaser[3] and
+Cooper.[4]
+
+[3] F. M. Glaser, “Signal Detection by Adaptive Filters,” _IRE Trans.
+Information Theory_, pp. 87-90; April 1961.
+
+[4] P. W. Cooper, “The Hypersphere in Pattern Recognition,”
+_Information and Control_, pp. 324-346; December 1962.
+
+The threshold value, Γᵢ, is adapted so that it increases if the
+memory becomes a better replica of the signal with the result that γᵢ
+increases. On the other hand, if the memory is a poor replica of the
+signal (for example, if it contains noise alone), it is necessary that
+the threshold decay with time to the point where additional acceptances
+can modify the memory structure.
+
+The experimental machine is entirely digital in operation and, as
+stated above, is capable of recovering waveforms of up to 10³ samples
+in duration. In a typical experiment, one might attempt to recover
+an unknown noise-perturbed, pseudo-random waveform of up to 10³ bits
+duration which occurs at random intervals. If no information is
+available as to the signal waveshape, the adaptive memory is blank at
+the start of the experiment.
+
+In order to illustrate the operation of the machine most clearly, let
+us consider a repetitive binary waveform which is composed of 10³ bits
+of alternate “zeros” and “ones.” A portion of this waveform is shown in
+Figure 2a. The waveform actually observed is a noise-perturbed version
+of this waveform shown in Figure 2b at-6 db signal-to-noise ratio. The
+exact sign of each of the signal bits obviously could not be accurately
+determined by direct observation of Figure 2b.
+
+[Illustration: (a) Binary signal]
+
+[Illustration: (b) Binary signal plus noise
+
+Figure 2—Binary signal with additive noise at-6 db SNR]
+
+[Illustration: (a) (b)]
+
+[Illustration: (c) (d)]
+
+[Illustration: (e)
+
+Figure 3—Adaption of the memory at-6 db SNR: (a) Blank initial memory;
+(b) Memory after first dump; (c) Memory after 12 dumps; (d) Memory
+after 40 dumps; (e) Perfect “checkerboard” memory for comparison]
+
+As the machine memory adapts to this noisy input signal, it progresses
+as shown in Figure 3. The sign of 10^{3} memory components are
+displayed in a raster pattern in this figure. Figure 3a shows the
+memory in its blank initial state at the start of the adaption process.
+Figure 3b shows the memory after the first adaption of the memory. This
+first “dump” occurred after the threshold had decayed to the point
+where an energy measurement produced an acceptance decision. Figure
+3c and 3d show the memory after 12 and 40 adaptions, respectively.
+These dumps, of course, are based on both energy and cross-correlation
+measurements. As can be seen, the adapted memory after 40 dumps is
+already quite close to the perfect memory shown by the “checkerboard”
+pattern of Figure 3c.
+
+The detailed analysis of the performance of this type of machine
+vs. signal-to-noise ratio, average signal repetition rate, signal
+duration, and machine parameters is extremely complex. Therefore, it
+is not appropriate here to detail the results of the analytical and
+experimental work on the performance of this machine. However, several
+conclusions of a general nature can be stated.
+
+    (a) Because the machine memory is always adapting, there
+        is a relatively high penalty for “false alarms.”
+        False alarms can destroy a perfect memory. Hence,
+        the threshold level needs to be set appropriately
+        high for the memory adaption. If one wishes to
+        detect signal occurrences with more tolerance to
+        false alarms, a separate comparator and threshold
+        level should be used.
+
+    (b) The present machine structure, which allows for
+        slowly varying changes in the signal waveshape,
+        exhibits a marked threshold effect in steady-state
+        performance at an input signal-to-noise ratio
+        (peak signal power-to-average noise power ratio)
+        of about -12 db. Below this signal level, the time
+        required for convergence increases very rapidly with
+        decreasing signal level. At higher SNR, convergence
+        to noise-like signals, having good auto-correlation
+        properties, occurs at a satisfactory rate.
+
+A more detailed discussion of performance has been published in the
+report cited in footnote reference 1.
+
+
+
+
+Conceptual Design of Self-Organizing Machines
+
+
+                   P. A. KLEYN
+
+                _Northrop Nortronics_
+             _Systems Support Department_
+                _Anaheim, California_
+
+    Self-organization is defined and several examples
+    which motivate this definition are presented. The
+    significance of this definition is explored by
+    comparison with the metrization problem discussed
+    in the companion paper (1) and it is seen that
+    self-organization requires decomposing the space
+    representing the environment. In the absence
+    of a priori knowledge of the environment, the
+    self-organizing machine must resort to a sequence
+    of projections on unit spheres to effect this
+    decomposition. Such a sequence of projections
+    can be provided by repeated use of a nilpotent
+    projection operator (NPO). An analog computer
+    mechanization of one such NPO is discussed
+    and the signal processing behavior of the NPO
+    is presented in detail using the Euclidean
+    geometrical representation of the metrizable
+    topology provided in the companion paper.
+    Self-organizing systems using multiple NPO’s
+    are discussed and current areas of research are
+    identified.
+
+
+INTRODUCTION
+
+Unlike the companion paper which considers certain questions in
+depth, this paper presents a survey of the scope of our work in
+self-organizing systems and is not intended to be profound.
+
+The approach we have followed may be called phenomenological (Figure
+1). That is, the desired behavior (self-organization) was defined,
+represented mathematically, and a mechanism(s) required to yield the
+postulated behavior was synthesized using mathematical techniques. One
+advantage of this approach is that it avoids assumptions of uniqueness
+of the mechanism. Another advantage is that the desired behavior, which
+is after all the principal objective, is taken as invariant. An obvious
+disadvantage is the requirement for the aforementioned synthesis
+technique; fortunately in our case a sufficiently general technique had
+been developed by the author of the companion paper.
+
+From the foregoing and from the definition of self-organization we
+employ (see conceptual model), it would appear that our research does
+not fit comfortably within any of the well publicized approaches to
+self-organization (2). Philosophically, we lean toward viewpoints
+expressed by Ashby (3), (4), Hawkins (5), and Mesarovic (6) but with
+certain reservations. We have avoided the neural net approach partly
+because it is receiving considerable attention and also because the
+brain mechanism need not be the unique way to produce the desired
+behavior.
+
+[Illustration: Figure 1—Approach used in Nortronics research on
+self-organizing systems]
+
+Nor have we followed the probability computer or statistical decision
+theory approach exemplified by Braverman (7) because these usually
+require some sort of preassigned coordinate system (8). Neither will
+the reader find much indication of formal logic (9) or heuristic (10)
+programming. Instead, we view a self-organizing system more as a mirror
+whose appearance reflects the environment rather than its own intrinsic
+nature. With this viewpoint, a self-organizing system appears very
+flexible because it possesses few internal constraints which would tend
+to distort the reflection of the environment and hinder its ability to
+adapt.
+
+
+CONCEPTUAL MODEL
+
+Definition
+
+A system is said to be self-organizing if, after observing the input
+and output of an unknown phenomenon (transfer relation), the system
+organizes itself into a simulation of the unknown phenomenon.
+
+Implicit in this definition is the requirement that the self-organizing
+machine (SOM) not possess a preassigned coordinate system. In fact it
+is just this ability to acquire that coordinate system implicit in the
+input-output spaces which define the phenomenon that we designate as
+self-organization. Thus any a priori information programmed into the
+SOM by means of, for example, stored or wired programs, constrains
+the SOM and limits its ability to adapt. We do not mean to suggest
+that such preprogramming is not useful or desirable; merely that it is
+inconsistent with the requirement for self-organization. As shown in
+Figure 2, it is the given portion of the environment which the SOM is
+to simulate, which via the defining end spaces, furnishes the SOM with
+all the data it needs to construct the coordinate system intrinsic to
+those spaces.
+
+The motivation for requiring the ability to simulate as a feature of
+self-organization stems from the following examples.
+
+Consider the operation of driving an automobile. Figure 3 depicts the
+relation characterized by a set of inputs; steering, throttle, brakes,
+transmission, and a set of outputs; the trajectory. Operation of the
+automobile requires a device (SOM) which for a desired trajectory can
+furnish those inputs which realize the desired trajectory. In order to
+provide the proper inputs to the automobile, the SOM must contain a
+simulation of ⨍⁻¹(x).
+
+[Illustration: Figure 2—Simulation of (a portion of) the environment]
+
+[Illustration: Figure 3—Simulation of a relation]
+
+Since ⨍(x) is completely defined in terms of the inputs and the
+resulting trajectories, exposure to them provide the SOM with all the
+information necessary to simulate ⨍⁻¹(x). And if the SOM possesses
+internal processes which cause rearrangement of the input-output
+relation of the SOM to correspond to ⨍⁻¹(x) in accordance with the
+observed data, the SOM can operate an automobile. It is this internal
+change which is implied by the term “self-organizing,” but note that
+the instructions which specify the desired organization have their
+source in the environment.
+
+As a second example consider adaptation to the environment. Adapt
+(from Webster) means: “to change (oneself) so that one’s behavior,
+attitudes, _etc._, will conform to new or changed circumstances.
+Adaptation in biology means a change in structure, function or form
+that produces better adjustment to the environment.” These statements
+suggest a simulation because adjustment to the environment implies
+survival by exposing the organism to the beneficial rather than the
+inimical effects of the environment. If we represent the environment
+(or portion thereof) as a relation as shown in Figure 2, we note that
+the ability to predict what effect a given disturbance will have is due
+to a simulation of the cause-effect relation which characterizes the
+environment.
+
+It would be a mistake to infer from these examples that simulation
+preserves the appearance of the causes and effects which characterize
+a relation. We clarify this situation by examining a relation and its
+simulation.
+
+Consider the relation between two mothers and their sons as pictured
+in Figure 4. Observe that if symbols (points) are substituted for the
+actual physical objects (mothers and sons), the relation is not altered
+in any way. This is what we mean by simulation and this is how a SOM
+simulates. It is not even necessary that the objects, used to display
+the relation, be defined; _i.e._, these objects may be primitive.
+(If this were not so, no mathematical or physical theory could model
+the environment.) The main prerequisite is sufficient resolution to
+distinguish the objects from each other.
+
+[Illustration: Figure 4—A relation of objects—displayed and simulated]
+
+
+MATHEMATICAL MODEL
+
+The mathematical model must represent both the environment and the SOM
+and for reasons given in the companion paper each is represented as a
+metrizable topology. For uniqueness we factor each space into equal
+parts and represent the environment as the channel
+
+W ⟶ X. (Ref. 10a)
+
+Consider now the SOM to be represented by the cascaded channels
+
+X ⟶ Y ⟶ Z
+
+where X ⟶ Y is a variable which represents the reorganization of the
+SOM existing input-output relation represented by Y ⟶ Z.
+
+The solution of the three channels-in-cascade problem
+
+W ⟶ X ⟶ Y ⟶ Z,
+
+where p(W) (11), p(X), p(X|W), p(Y), p(Z), p(Z|Y) are fixed, yields
+that middle channel p₀(Y|X), from a set of permissible middle channels
+{p(Y|X)}, which maximizes R(Z,W).
+
+Then the resulting middle channel describes that reorganization of the
+SOM which yields the optimum simulation of W ⟶ X by the SOM, within the
+constraints upon Ch(Z,Y).
+
+The solution (the middle channel) depends of course on the particular
+end channels. Obviously the algorithm which is used to find the
+solution does not. It follows that if some physical process were
+constrained to carrying out the steps specified by the algorithm,
+said process would be capable of simulation and would exhibit
+self-organization.
+
+Although the formal solution to the three-channels-in-cascade problem
+is not complete, the solution is sufficiently well characterized to
+permit proceeding with a mechanization of the algorithm. A considerable
+portion of the solution is concerned with the decomposition and
+metrization of channels and it is upon this feature that we now focus
+attention.
+
+As suggested in the companion paper, if the dimensionality of the
+spaces is greater than one, the SOM has only one method available (12).
+Consider the decomposition of a space without, for the moment, making
+the distinction between input and output.
+
+Figure 5 depicts objects represented by a (perhaps multidimensional)
+“cloud” of points. In the absence of a preassigned coordinate system,
+the SOM computes the center of gravity of the cloud (which can be
+done in any coordinate system) and describes the points in terms of
+the distance from this center of gravity; or, which is the same, as
+concentric spheres with origin at the center of gravity.
+
+[Illustration: Figure 5—Nilpotent decomposition of a three-dimensional
+space]
+
+The direction of particular point cannot be specified for there is no
+reference radius vector. Since the SOM wants to end up with a cartesian
+coordinate system, it must transform the sphere (a two-dimensional
+surface) into a plane (a two-dimensional surface). Unfortunately, a
+sphere is not homeomorphic to a plane; thus the SOM has to decompose
+the sphere into a cartesian product of a hemisphere (12a) and a
+denumerable group. The SOM then can transform the hemisphere into a
+plane. The points projected onto the plane constitute a space of the
+same character as the one with which the SOM started. Thus, it can
+repeat all operations on the plane (a space of one less dimension) by
+finding the center of gravity and the circle upon which the desired
+point is situated. The circle is similarly decomposed into a line times
+a denumerable group. By repeating this operation as many times as the
+space has dimensions, the SOM eventually arrives at a single point and
+has obtained in the process a description of the space. Since this
+procedure can be carried on by the repeated use of one operator, this
+operator is nilpotent and to reflect this fact as well as the use of a
+projection, we have named this a nilpotent projection operator or NPO
+for short.
+
+
+MECHANIZATION OF THE NPO
+
+Analog computer elements were used to simulate one NPO which was
+tested in the experimental configuration shown in Figure 6. The NPO
+operates upon a channel which is artificially generated from the two
+noise generators i₁ and i₂ and the signal generator i₀ (i₀ may also be
+a noise generator). The NPO accepts the inputs labelled X₁ and X₂ and
+provides the three outputs Ξ₁, Ξ₂, and γ. X₁ is the linear combination
+of the outputs of generators i₁ and i₀, similarly X₂ is obtained from
+i₂ and i₀.
+
+[Illustration: Figure 6—Experimental test configuration for the
+simulation of an NPO]
+
+Obviously, i₀ is an important parameter since it represents the memory
+relating the spaces X₁ and X₂. Ξ₁ has the property that the magnitude
+of its projection on i₀ is a maximum while Ξ₂ to the opposite has a
+zero projection on i₀. γ is the detected version of the eigenvalue of
+Ch(X₂,X₁).
+
+In the companion paper it was shown how one can provide a Euclidean
+geometrical representation of the NPO. This representation is shown in
+Figure 7 which shows the vectors i₀, i₁, i₂, X₁, X₂, Ξ₁, Ξ₂, and the
+angles Θ₁, Θ₂, and γ. The length of a vector is given by
+
+|X| = κₓ(2πε)⁻¹ᐟ² ∈ H(X)
+
+and the angle between two vectors by
+
+|Θ(X₁,X₂)|-sin⁻¹ ∈ -R(X₁,X₂).
+
+The three vectors i₀, i₁, i₂ provide an orthogonal coordinate system
+because the corresponding signals are random, _i.e._,
+
+                κ
+    R(i₀,i₁,i₂) ≡ 0.
+
+As external observers we have a prior knowledge of this coordinate
+system; however, the NPO is given only the vectors X₁ and X₂ in the i₀
+⨉ i₁ and i₀ ⨉ i₂ planes. The NPO can reconstruct the entire geometry
+but the actual output Ξ obviously is constrained to lie in the plane of
+the input vector X. The following formulas are typical of the relations
+present.
+
+              |Ξ₁|
+      tan β = ————
+              |Ξ₂|
+
+      cos Θ = cos 2β csc 2γ
+
+                     cos 2β
+    cos 2Θ₁ = -1 + 2 ———————
+                     1-cos 2γ
+
+      cos Θ = cos Θ₁ cos Θ₂.
+
+[Illustration: Figure 7—Geometry of the NPO]
+
+[Illustration: Figure 8—NPO run number 5]
+
+[Illustration: Figure 9—NPO run number 6]
+
+We have obtained a complete description of the NPO which involves 74
+formulas. These treat the noise in the various outputs, invariances of
+the NPO and other interesting features. A presentation of these would
+be outside of the scope of this paper and would tend to obscure the
+main features of the NPO. Thus, we show here only a typical sample of
+the computer simulation, Figure 8 and Figure 9. Conditions for these
+runs are shown in Table I. Run No. 6 duplicates run No. 5 except for
+the fact that i₁ and i₂ were disabled in run No. 6.
+
+Observe that all our descriptions of the NPO and the space it is to
+decompose have been time invariant while the signals shown in the
+simulation are presented as functions of time. The conversion may be
+effected as follows: Given a measurable (single-valued) function
+
+                        x = x(t)t ∊ T
+    where
+                          μ(T) > 0
+    we define the space
+                        X = {x = x(t) ∍ t ∊ T}
+
+    and a probability distribution
+
+                            μ(x⁻¹(X′))
+                    P(X′) = —————————— X′ open ⊂ X
+                               μ(T)
+    on that space.
+
+                           TABLE I
+                 Legend for Traces of Figures 8 and 9
+    ---------+-------+-------+--------+-----+----------+-------+--------
+    Trace    |       |       |        |     |          |       |
+    Number   |   1   |   2   |    3   |  4  |    5     |   6   |   7
+    ---------+-------+-------+--------+-----+----------+-------+--------
+    Symbol   |   X₂  | X₁    |    γ   |  β  |    i     | dξ₂/dτ | dξ₁/dτ
+    ---------+-------+-------+--------+-----+----------+--------+-------
+    run No. 5|       |       |        |     |          |        |
+             |       |       |        |     |          |        |
+    signal   |7½ Vrms|7½ Vrms| π ptop |     |35.6 m cps|        |
+             |       |       |        |     |          |        |
+    noise    |16 Vrms|15 Vrms|  π/9   |     |          |        |
+             |       |       | ptop[5]|     |sine wave |        |
+             |       |       |        |     |          |        |
+    DC       |  0    |  0    |        |     |          |        |
+             |       |       |        |     |          |        |
+    power s/n|  1/4  |  1/4  |  81/1  |     |          |   0    | 1/2[6]
+             |       |       |        |     |          |        |
+    terminal |       |       |        |     |          |        |
+    value    |       |       |  π/4   | π/4 |          |        |
+    ---------+-------+-------+--------+-----+----------+--------+-------
+    run No. 6|       |       |        |     |          |        |
+             |       |       |        |     |          |        |
+    signal   |7½ Vrms|7½ Vrms| π ptop |     |35.6 m cps|        |
+             |       |       |        |     |          |        |
+    noise    |  0    |  0    |  0[7]  |     |sine wave |        |
+             |       |       |        |     |          |        |
+    DC       | -30V  |  0    |        |     |          |        |
+             |       |       |        |     |          |        |
+    power s/n|   ∞   |   ∞   |   ∞    |     |          |   0    |  ∞
+             |       |       |        |     |          |        |
+    terminal |       |       |        |     |          |        |
+    value    |       |       | π/4    | π/4 |          |        |
+    ---------+-------+-------+--------+-----+----------+--------+-------
+
+[5] Observed from Oscillogram
+
+[6] Computed
+
+[7] Observed from Oscillogram
+
+Then (X,p(X)) is a stochastic space in our usual sense and x(T) is a
+stochastic variable. Two immediate consequences are:
+
+P(X) is stationary (P(X) is not a function of t ∊ T), and no question
+of ergodicity arises.
+
+
+NETWORKS OF NPO’S
+
+A network of NPO’s may constitute anything from a SOM to a
+preprogrammed detector, depending upon the relative amount of
+preprogramming included. Two methods of preprogramming are: (1) Feeding
+a signal out of a permanent storage into some of the inputs of the
+network of NPO’s. This a priori copy need not be perfect, because the
+SOM will measure the angles Θᵢ anyhow. (2) Feedback, which, after all,
+is just a way of taking advantage of the storage inherent in any delay
+line. (We implicitly assume that any reasonable physical realization
+of an NPO will include a delay T between the x input and the ξ output
+which is not less than perhaps 10⁻¹ times the time constant of the
+internal feedback loop in the γ computation.)
+
+Simulation of channels that possess a discrete component requires
+feedback path(s) to generate the required free products of the finitely
+generated groups. Then, such a SOM converges to a maximal subgroup of
+the group describing the symmetry of the signal that is a free product
+available to this SOM.
+
+Because a single NPO with 1 ≤ n₀ ≤ K₀ is isomorphic (provides the same
+input to output mapping) to a suitable network of NPO’s with n₀ = 1, it
+suffices to study only networks of NPO’s with n₀ = 1.
+
+Figure 10 is largely self-explanatory. Item a is our schematic symbol
+for a single NPO with n₀ = 1. Items b, d (including larger feedback
+loops), and f are typical of artificial intelligence networks. Item c
+is employed to effect the level changing required in order to apply the
+three channels in cascade algorithm to the solution of one-dimensional
+coding problems. Observe that items c and e are the only configurations
+requiring the γ output. Item d may be used as a limiter by making T⁻¹
+high compared to the highest frequency present in the signal. Observe
+that item e is the only application of NPO’s that requires either the
+ξ₂ or β outputs. Item f serves the purpose of handling higher power
+levels into and out of what effectively is a single (larger) NPO.
+
+[Illustration]
+
+[Illustration: Figure 10—Some possible networks of NPO’s]
+
+
+CONCLUSION
+
+The definition of self-organizing behavior suitably represented has
+permitted the use of Information Theoretic techniques to synthesize
+a (mathematical) mechanism for a self-organizing machine. Physical
+mechanization in the form of an NPO has been accomplished and has
+introduced the experimental phase of the program. From among the many
+items deserving of further study we may mention: more economical
+physical mechanization through introduction of modern technology;
+identification of networks of NPO’s with their group theoretic
+descriptions; analysis of the dimensionality of tasks which a SOM might
+be called on to simulate, and prototype SOM applications to related
+tasks. It is hoped that progress along these lines can be reported in
+the future.
+
+
+
+
+REFERENCES
+
+
+    1. Ścibor-Marchocki, Romuald I.,
+       “A Topological Foundation for Self-Organization,”
+        Anaheim, California:Northrop Nortronics, NSS Report 2828,
+        November 14, 1963
+
+    2. It is true that our definition is very similar to that proposed
+       by Hawkins (reference 5). Compare for example his definition of
+       learning machines (page 31 of reference 5). But the subsequent
+       developments reviewed therein are different from the one we have
+       followed.
+
+    3. Ashby, W. R.,
+       “The Set Theory of Mechanism and Homeostasis,”
+        Technical Report 7, University of Illinois, September 1962
+
+    4. Ashby, W. R.,
+       “Systems and Information,”
+       _Transactions PTGME_ =MIL-7=:94-97 (April-July, 1963)
+
+    5. Hawkins, J. K.,
+       “Self-Organizing Systems—A Review and Commentary,”
+       _Proc. IRE_. =49=:31-48 (January 1961)
+
+    6. Mesarovic, M. D.,
+       “On Self Organizational Systems,”
+        Spartan Books, pp. 9-36, 1962
+
+    7. Braverman, D.,
+       “Learning Filters for Optimum Pattern Recognition,”
+       _PGIT_ =IT-8=:280-285 (July 1962)
+
+    8. We make the latter statement despite the fact that we employ a
+       statistical treatment of self-organization. We may predict the
+       performance of, for example, the NPO by using a statistical
+       description, but it does not necessarily follow that the NPO
+       computes statistics.
+
+    9. McCulloch, W. S., and Pitts, W.,
+       “A Logical Calculus of the Ideas Imminent in Nervous Activity,”
+       _Bull-Math. Biophys_ =5=:115 (1943)
+
+    10. Newell, A., Shaw, J. C., and Simon, H. A.,
+        “Empirical Explorations of the Logic Theory Machine:
+               A Case Study in Heuristic,”
+        _Proc. WJCC_, pp. 218-230, 1957
+
+    10a. The spaces W, X, Y, and Z are stochastic spaces; that is,
+         each space is defined as the ordered pair (X,p(X)) where
+         p(X) = {p(x) ∋ x ∈ X}, p(x) ≥ 0, x ∈ X and ∫x p(x)dx = 1.
+         Such spaces possess a metrizable topology.
+
+    11. We use the following convention for probability distributions:
+        if the arguments of p( ) are different, they are different
+        functions, thus: p(x) ≠ p(y) even if y = x.
+
+    12. One can prove the existence of a metric directly but in order
+        to perform the metrization the space has to be decomposed first.
+        But decomposing a space without having a metric calls for a neat
+        trick, accomplished (as far as we know) only by the method used
+        by the SOM.
+
+    12a. In this example we use a hemisphere; in general, it would be
+         a spherical cap.
+
+
+
+
+A Topological Foundation for Self-Organization
+
+
+            R. I. ŚCIBOR-MARCHOCKI
+
+              _Northrop Nortronics_
+           _Systems Support Department_
+              _Anaheim, California_
+
+    It is shown that by the use of Information
+    Theory, any metrizable topology may be metrized
+    as an orthogonal Euclidean space (with a random
+    Gaussian probability distribution) times
+    a denumerable random cartesian product of
+    irreducible (wrt direct product) denumerable
+    groups. The necessary algorithm to accomplish
+    this metrization from a statistical basis is
+    presented. If such a basis is unavailable,
+    a certain nilpotent projection operator has
+    to be used instead, as is shown in detail in
+    the companion paper. This operator possesses
+    self-organizing features.
+
+
+INTRODUCTION
+
+In the companion article[8] we will define a self-organizing system
+as one which, after observing the input and output of an unknown
+phenomenon (transfer relation), organizes itself into a simulation of
+the unknown phenomenon.
+
+[8] Kleyn, P. A., “Conceptual Design of Self-Organizing Machines,”
+Anaheim, California:Northrop Nortronics, NSS Report 2832, Nov. 14, 1963.
+
+Within the mathematical model, the aforementioned phenomenon may be
+represented as a topological space thus omitting for the moment the
+(arbitrary) designation of input and output which, as will be shown,
+bears on the question of uniqueness. Hence, for the purpose of this
+paper, which emphasizes the mathematical foundation, an intelligent
+device is taken as one which carries out the task of studying a space
+and describing it.
+
+In keeping with the policy that one should not ask someone (or
+something) else to do a task that he could not do himself (at least in
+principle), let us consider how we would approach such a problem.
+
+In the first place, we have to select the space in which the problem is
+to be set. The most general space that we feel capable of tackling is
+a metrizable topology. On the other hand, anything less general would
+be unnecessarily restrictive. Thus, we choose a metrizable topological
+space.
+
+As soon as we have made this choice, we regret it. In order to
+improve the situation somewhat, we show that there is no (additional)
+loss of generality in using an orthogonal Euclidean space times[9]
+a denumerable random cartesian product of irreducible (wrt direct
+product) denumerable groups.
+
+This paper provides a survey of the problem and a method for solving
+it which is conceptually clear but not very practical. The companion
+paper[10] provides a practical method for solving this problem by means
+of the successive use of a certain nilpotent projection operator.
+
+[9] Random cartesian product.
+
+[10] Kleyn, P. A., “Conceptual Design of Self-Organizing Machines,”
+Anaheim, California:Northrop Nortronics, NSS Report 2832, Nov. 14, 1963.
+
+METRIZATION
+
+We start with a metrizable topological space. There are many equivalent
+axiomatizations of a metrizable topology; _e.g._, see Kelley. Perhaps
+the easiest way to visualize a metrizable topology is to consider that
+one was given a metric space but that he lost his notes in which the
+exact form of the metric was written down. Thus one knows that he can
+do everything that he could in a metric space, if only he can figure
+out how.
+
+The “figuring out how” is by no means trivial. Here, it will be assumed
+that a cumulative probability distribution has been obtained on the
+space by one of the standard methods; bird in cage,[11] Munroe I,[12]
+Munroe II,[13] ordering (see Halmos[14] or Kelley[15]). This cumulative
+probability distribution is a function on X onto the interval [0,1] of
+real numbers. The inverse of this function, which exists by the Radon
+Nikodym theorem, provides a mapping from the real interval onto the
+non-trivial portion of X. This mapping induces all of the pleasant
+properties of the real numbers on the space X: topological, metric, and
+ordering.
+
+Actually, it turns out that, especially if the dimensionality of
+the space is greater than one, the foregoing procedure not only
+provides one metrization, but many. Indeed, this lack of uniqueness
+is what makes the procedure exceedingly difficult. Only by imposing
+some additional conditions that result in the existence of a unique
+solution, does the problem become tractable.
+
+We choose to impose the additional condition that the resulting metric
+space be a Euclidean geometry with a rectangular coordinate system.
+
+[11] Harman, W. W., “Principles of the Statistical Theory of
+Communication,” New York, New York:McGraw-Hill, 1963.
+
+[12] Munroe, M. E., “Introduction to Measure and Integration,”
+Cambridge, Mass.:Addison-Wesley, 1953.
+
+[13] Munroe, M. E., “Introduction to Measure and Integration,”
+Cambridge, Mass.:Addison-Wesley, 1953.
+
+[14] Halmos, P. R., “Measure Theory,” Princeton, New Jersey:D. Van
+Nostrand Co., Inc., 1950.
+
+[15] Kelley, J. L., “General Topology,” Princeton, New Jersey:D. Van
+Nostrand Co., Inc., 1955.
+
+Even this always does not yield uniqueness, but we will show the
+additional restriction that will guarantee uniqueness after the
+necessary language is developed. Since all metrizations of a given
+metrizable topology are isomorphic, in the quotient class the
+orthogonal Euclidean geometry serves the purpose of being a convenient
+representative of the unique element resulting from a given metrizable
+topology.
+
+Furthermore, the same comment applies to the use of a Gaussian
+distribution as the probability distribution on this orthogonal
+Euclidean geometry. Namely, the random Gaussian distribution on an
+orthogonal Euclidean geometry is a convenient representative member of
+the equivalence class which maps into one element (stochastic space) of
+the quotient class.
+
+
+Information Theory
+
+Now, we will show that Information Theory provides the language
+necessary to describe the metrization procedure in detail.
+
+It is possible to introduce Information Theory axiomatically by a
+suitable generalization of the axioms[16] in Feinstein.[17] But
+to simplify the discussion here, we will use the less elegant but
+equivalent method of defining certain definite integrals. The
+probability density distribution p is defined from the cumulative
+probability distribution P by
+
+                P(X′) = ∫X′_{measurable ⊂ X} p(x)dx.  (1)
+
+    Then the information rate H is defined as
+
+                 H(X) = -∫ₓp(x) ln κ p(x)dx            (2)
+
+    where kappa has (carries) the units of X. Finally,
+    the channel rate R is defined as
+
+              R(⨀Xᵢ) = ΣH(Xᵢ) - H(X),                  (3)
+                I       I
+
+    where X is the denumerable[18] cartesian product space
+
+                    X = ⨂Xᵢ.                           (4)
+                        I
+
+[16] Feinstein uses his axioms only in finite space X; _i.e._, card(X)
+< K₀.
+
+[17] Feinstein, A., “Foundations of Information Theory,” New York, New
+York: McGraw-Hill, 1958.
+
+[18] If I is infinite, certain precautions have to be exercised.
+
+Next, we define the angle Θ
+
+             |Θ(⨀Xᵢ)| = sin⁻¹_e_^{-R(⨀Xᵢ)}        (5)
+                                  I
+    and the norm
+
+                  |X| = κ(2π_e_)⁻¹ᐟ² _e_^{(HX)}. (6)
+
+    Now, if[19] a statistically independent basis; _i.e._, one for which
+                       κ
+              R(⨀Xᵢ) ≡ constant,                        (7)
+                I
+
+can be provided in terms of one-dimensional components; _i.e._, none
+of them can be decomposed further, then it is just the usual problem
+of diagonalization of a symmetric matrix by means of a congruence
+transformation to provide an orthogonal coordinate system. Furthermore,
+for uniqueness, we arrange the spectrum in decreasing order. Then,
+by means of the Radon Nikodym theorem applied to each of these
+one-dimensional axes, the probability distribution may be made; _e.g._,
+Gaussian, if desired. Thus, we obtain the promised orthogonal Euclidean
+space.
+
+[19] This “if” is the catch that makes all methods of metrization of a
+space of dimensionality higher than one impractical, except the method
+of successive projections upon unit spheres centered at the center of
+gravity. The method of using that nilpotent projection operator is
+described in the companion paper(see footnote page 65).
+
+
+Channel
+
+At this time we can state the remaining additional condition required
+that a decomposition be unique. The index space I has to be partitioned
+into exactly two parts, say I′ and I″; _i.e._,
+
+               I′ ∪ I″ = I           (8)
+
+               I′ ∩ I″ = φ,
+
+    such that
+
+               dim(X′) = dim(X″),    (9)
+
+    where
+
+                    X′ = ⨂Xᵢ        (10)
+                         I′
+
+                    X″ = ⨂Xᵢ.
+                         I″
+
+(If dim (X) is odd, then we have to cheat a little by putting in an
+extra random dummy dimension.) And then the decomposition of the space
+
+X = ⨂Xᵢ (11) I
+
+has to be carried out so that this partitioning is preserved.
+Since this partitioning is arbitrary (as far as the mathematics is
+concerned), it is obvious that a space which is not partitioned will
+have many (equivalent) decompositions. On the other hand, if the
+partitioning is into more than two parts, then the existence of a
+decomposition is not guaranteed.
+
+A slight penalty has to be paid for the use of this partitioning,
+namely: instead of eventually obtaining a random cartesian product of
+one-dimensional spaces, we obtain an extended channel (with random
+input) of single-dimensional channels. It is obvious that if we were
+to drop the partitioning temporarily, each such single-dimensional
+channel would be further decomposed into two random components. This
+decomposition is not unique. But one of these equivalent decompositions
+is particularly convenient; namely, that decomposition where we take
+the component out of the original X′ and that which is random to it,
+say V. This V (as well as the cartesian product of all such V’s,
+which of necessity are random) is called the linearly additive noise.
+The name “linearly additive” is justified because it is just the
+statistical concept isomorphic to the linear addition of vectors in
+orthogonal Euclidean geometry. (The proof of this last statement is not
+completed as yet.)
+
+
+Denumerable Space
+
+The procedure for this decomposition was worded to de-emphasize the
+possible presence of a denumerable (component of the) space. Such a
+component may be given outright; otherwise, it results if the space was
+not simply connected. Any denumerable space is zero dimensional, as may
+be verified easily from the full information theoretic definition of
+dimensionality.
+
+The obvious way of disposing of a denumerable space is to use the
+conventional mapping that converts a Stieltjes to a Lebesque integral,
+using fixed length segments. (It can be shown that H is invariant
+under such a mapping.) Unfortunately, while this mapping followed by
+a repetition of the preceding procedure will always solve a given
+problem (no new[20] denumerable component _need_ be generated on the
+second pass), little insight is provided into the structure of the
+resulting space. On the other hand, because channels under cascading
+constitute a group, any such denumerable space is a representation of a
+denumerable group.
+
+[20] Only non-cyclic irreducible (wrt direct product) denumerable group
+components of the old denumerable space will remain.
+
+
+SUMMARY
+
+In summary, the original metrizable topological space was decomposed
+into an orthogonal Euclidean space times[21] a denumerable random
+cartesian product of irreducible (wrt direct product) denumerable
+groups. Thus, since any individual component of a random cartesian
+product may be studied independently of the others, all that one needs
+to study is: (1) a Gaussian distribution on a single real axis and (2)
+the irreducible denumerable groups.
+
+[21] Random cartesian product.
+
+Finally, it should be emphasized that there are only these two ways
+of decomposing a metrizable topology; (1) if a (statistical) basis
+is given, use the diagonalization of a symmetric matrix algorithm
+described earlier (and given in detail in the three channels in cascade
+problem), and (2) otherwise use a suitable network of the NPO’s with
+n₀=1. Of course, any hybrid of these two methods may be employed as
+well.
+
+
+
+
+On Functional Neuron Modeling
+
+
+          C. E. HENDRIX
+
+    _Space-General Corporation_
+      _El Monte, California_
+
+There are two very compelling reasons why mathematical and physical
+models of the neuron should be built. Model building, while widely
+used in the physical sciences, has been largely neglected in biology.
+However, there can be little doubt that building neuron models
+will increase our understanding of the function of real neurons,
+if experience in the physical sciences is any guide. Secondly,
+neuron models are extremely interesting in their own right as new
+technological devices. Hence, the interest in, and the reason for
+symposia on self-organizing systems.
+
+We should turn our attention to the properties of real neurons, and
+see which of them are the most important ones for us to imitate.
+Obviously, we cannot hope to imitate _all_ the properties of a living
+neuron, since that would require a complete simulation of a living,
+metabolizing cell, and a highly specialized one at that; but we
+can select those functional properties which we feel are the most
+important, and then try to simulate those.
+
+The most dramatic aspect of neuron function is, of course, the axon
+discharge. It is this which gives the neuron its “all-or-nothing”
+character, and it is this which provides it with a means for
+propagating its output pulses over a distance. Hodgkin and Huxley (1)
+have developed a very complete description of this action. Their model
+is certainly without peer in describing the nature of the real neuron.
+
+On the technological side, Cranes’ “neuristors” (2) represent a class
+of devices which imitate the axonal discharge in a gross sort of way,
+without all the subtle nuances of the Hodgkin-Huxley model. Crane has
+shown that neuristors can be combined to yield the various Boolean
+functions needed in a computer.
+
+However, interesting as such models of the axon are, there is some
+question as to their importance in the development of self-organizing
+systems. The pulse generation, “all-or-nothing” part of the axon
+behavior could just as well be simulated by a “one-shot” trigger
+circuit. The transmission characteristic of the axon is, after all,
+only Nature’s way of sending a signal from here to there. It is
+an admirable solution to the problem, when one considers that it
+evolved, and still works, in a bath of salt water. There seems little
+point, however, in a hardware designer limiting himself in this way,
+especially if he has an adequate supply of insulated copper wire.
+
+If the transmission characteristic of the axon is deleted, the
+properties of the neuron which seem to be the most important in the
+synthesis of self-organizing systems are:
+
+    a. The neuron responds to a stimulus with an electrical
+       pulse of standard size and shape. If the stimulus
+       continues, the pulses occur at regular intervals
+       with the rate of occurrence dependent on the
+       intensity of stimulation.
+
+    b. There is a threshold of stimulation. If the
+       intensity of the stimulus is below this threshold,
+       the neuron does not fire.
+
+    c. The neuron is capable of temporal and spatial
+       integration. Many subthreshold stimuli arriving at
+       the neuron from different sources, or at slightly
+       different times, can add up to a sufficient level to
+       fire the neuron.
+
+    d. Some inputs are excitatory, some are inhibitory.
+
+    e. There is a refractory period. Once fired, there is
+       a subsequent period during which the neuron cannot
+       be fired again, no matter how large the stimulus.
+       This places an upper limit on the pulse rate of any
+       particular neuron.
+
+    f. The neuron can learn. This property is conjectural
+       in living neurons, since it appears that at
+       the present time learning has not been clearly
+       demonstrated in isolated living neurons.
+       However, the learning property is basic to all
+       self-organizing models.
+
+Neuron models with the above characteristics have been built, although
+none seem to have incorporated _all_ of them in a single model. Harman
+(3) at Bell Labs has built neuron models which have the characteristics
+(a) through (e), with which he has built extremely interesting devices
+which simulate portions of the peripheral neuron system.
+
+Various attempts at learning elements have been made, perhaps best
+exemplified by those of Widrow (4). These devices are capable of
+“learning,” but are static, and lack all the temporal characteristics
+listed in (a) through (e). Such devices can be used to deal with
+temporal patterns only by a mapping technique, in which a temporal
+pattern is converted to a spatial one.
+
+Having listed which seem to be the important properties of a neuron, it
+is possible to synthesize a simple model which has all of them.
+
+A number of input stimuli are fed to the neuron through a resistive
+summing network which establishes the threshold and accomplishes
+spatial integration. The voltage at the summing junction triggers a
+“one-shot” circuit, which, by its very nature, accomplishes pulse
+generation and exhibits temporal integration and a refractory period.
+The polarity of an individual input determines whether it shall be
+excitatory or inhibitory. This much of the circuitry is very similar to
+Harmon’s model.
+
+Learning is postulated to take place in the following way: when the
+neuron fires, an outside influence (the environment, or a “trainer”)
+determines whether or not the result of firing was desirable or not.
+If it was desirable, the threshold of the neuron is lowered, making
+it easier to fire the next time. If the result was not desirable, the
+threshold is raised, making it more difficult for the neuron to fire
+the next time.
+
+In a self-organizing system, many model neurons would be
+interconnected. A “punish-reward” (P-R) signal would be connected to
+all neurons in common. However, means would be provided for only those
+which have recently fired to be susceptible to the effects of the P-R
+signal. Therefore, only those which had taken part in a recent response
+are modified. This idea is due to Stewart (5), who applies it to his
+electrochemical devices instead of to an electronic device.
+
+The mechanization of the circuitry is rather straight-forward. A
+portion of the output of the pulse generator is routed through a
+“pulse-stretcher” or short-term memory which temporarily records the
+fact that the neuron has recently fired. The pulse-stretcher output
+controls a gate, which either accepts or rejects the P-R signal. The
+P-R signal can take on only three values, a positive level, zero, or
+a negative level, depending on whether the signal is “punish,” “no
+action,” or “reward.” Finally, the gate output controls a variable
+resistor, which is part of the resistive summing network. Figure 1 is a
+block diagram of the complete model.
+
+Note that this device differs from the usual “Perceptron” configuration
+in that the threshold resistor is the only variable element, instead
+of having each input resistor a variable weighting element. This
+simplification could lead to a situation where, to prepare a specified
+task, more single-variable neurons would be required than would
+multivariable ones. This possible disadvantage is partially, at least,
+offset by the very simple control algorithm which is contained in the
+design of the model, and is not the matter of great concern which it
+seems to be for most multivariable models.
+
+[Illustration: Figure 1—Block diagram of neuron model]
+
+Hand simulations of the action of this type of model suggest that a
+certain amount of randomness would be desirable. It appears that a
+self-organizing system built of these elements, and of sufficient
+complexity to be interesting, would have a fair number of recirculating
+loops, so that spontaneous activity would be maintained in the absence
+of input stimulus. If this is the case, then randomness could easily
+be introduced by adding a small amount of noise from a random noise
+generator to the signal on the P-R bus. Thus, any neurons which
+spontaneously fire would be continually having their thresholds
+modified.
+
+The mechanization of the model is not particularly complex, and can
+be estimated as follows: The one-shot pulse generator would require
+two transistors, the pulse stretcher one more. The bi-directional gate
+would require a transistor and at least two diodes.
+
+Several candidates for the electrically-controllable variable
+resistor are available (6). Particularly good candidates appear to
+be the “Memistor” or plating cell developed by Widrow (7), the solid
+state version of it by Vendelin (8), and the “solion” (9). All are
+electrochemical devices in which the resistance between two terminals
+is controlled by the net charge flow through a third terminal. All are
+adaptable to this particular circuit.
+
+Of the three, however, the solion appears at first glance to have the
+most promise in that its resistance is of the order of a few thousand
+ohms (rather than the few ohms of the plating cells) which is more
+compatible with ordinary solid-state circuitry. Solions have the
+disadvantage that they can stand only very low voltages (less than 1
+volt) and in their present form require extra bias potentials. If these
+difficulties can be overcome, they offer considerable promise.
+
+In summary, it appears that a rather simple neuron model can be built
+which can mimic most of the important functions of real neurons. A
+system built of these could be punished or rewarded by an observer,
+so that it could be trained to give specified responses to specified
+stimuli. In some cases, the observer could be simply the environment,
+so that the system would learn directly from experience, and would be
+therefore a self-organizing system.
+
+
+REFERENCES
+
+    1. Hodgkin, A. L., and Huxley, A. L.,
+       “A Quantitative Description of Membrane Current and its
+        Application to Conduction and Excitation in Nerve,”
+       _J. Physiol._ =117=:500-544 (August 1952)
+
+    2. Crane, H. D.,
+       “Neuristor—A Novel Device and System Concept,”
+      _Proc. IRE_ =50=:2048-2060 (Oct. 1962)
+
+    3. Harmon, L. D., Levinson, J., and Van Bergeijk, W. A.,
+       “Analog Models of Neural Mechanism,”
+       _IRE Trans. on Information Theory_ =IT-8=:107-112
+       (Feb. 1962)
+
+    4. Widrow, B., and Hoff, M. E.,
+       “Adaptive Switching Circuits,”
+        Stanford Electronics Lab Tech Report 1553-1, June 1960
+
+    5. Stewart, R. M.,
+       “Electrochemical Wave Interactions and Extensive Field Effects
+        in Excitable Cellular Structures,”
+       First Pasadena Invitational Symposium on Self-Organizing Systems,
+       Calif. Institute of Technology, Pasadena, Calif., 14 Nov. 1963
+
+    6. Nagy, G.,
+       “A Survey of Analog Memory Devices,”
+       _IEEE Trans. on Electronic Cmptrs._ EC-12:388-393 (Aug. 1963)
+
+    7. Widrow, B.,
+       “An Adaptive Adaline Neuron Using Chemical Memistors,”
+        Stanford Electronics Lab Tech Report 1553-2, Oct. 1960
+
+    8. Vendelin, G. D.,
+       “A Solid State Adaptive Component,”
+       Stanford Electronics Lab Tech Report 1853-1, Jan. 1963
+
+    9. “Solion Principles of Electrochemistry and Low-Power
+        Electrochemical Devices,”
+        Dept. of Comm., Office of Tech. Serv. =PB= 131931
+        (U. S. Naval Ord. Lab., Silver Spring, Md., Aug. 1958)
+
+
+
+
+Selection of Parameters for Neural Net Simulations[22]
+
+
+         R. K. OVERTON
+
+    _Autonetics Research Center_
+       _Anaheim, California_
+
+Research of high quality has been presented at this Symposium. Of
+particular interest to me were the reports of the Aeronutronic group
+and the Librascope group. The Aeronutronic group was commendably
+systematic in its investigations of different arrangements of linear
+threshold elements, and the Librascope data, presenting the effects of
+attaching different values to the parameters of simulated neurons, are
+both systematic and interesting.
+
+Unfortunately, however, interest in such research can obscure a more
+fundamental question which seems to merit study. That question concerns
+the parameters, or attributes, which describe the simulated neuron.
+Specifically, which parameters or attributes should be selected for
+simulation? (For example, should a period of supernormal sensitivity be
+simulated following an absolutely refractory period?)
+
+Some selection obviously has to be made. Librascope, which is
+trying to simulate neurons more or less faithfully, plans to build
+a net of ten simulated neurons. In contrast, General Dynamics/Fort
+Worth, with roughly the same degree of effort, is working with 3900
+unfaithfully-simulated neurons. This comparison is not a criticism
+of either group; the Librascope team has simply selected many more
+parameters for simulation than has the General Dynamics group. Each
+can make the selections it prefers, because the parameters of real
+neurons which are necessary and sufficient for learning have not been
+exhaustively identified.
+
+From the point of view of one whose interests include real neurons,
+this lack of identification is unfortunate. I once wrote a book which
+included some guesses about the essential attributes of neurons. Since
+that time, many neuron simulation programs have been written. But these
+programs, although interesting and worthwhile in their own right, have
+done little to answer the question of the necessary parameters. That
+is, they do not make much better guesses possible. And yet better
+guesses would also make for more “intelligent” machines.
+
+[22] This paper, submitted after the Symposium, represents a more
+detailed presentation of some of the issues raised in the discussion
+sessions at the Symposium and hence, constitutes a worthwhile addition
+to the Proceedings.
+
+
+
+
+INDEX OF INVITED PARTICIPANTS
+
+
+    MICHAEL ARBIB               Massachusetts Institute of Technology
+    ROBERT H. ASENDORF          Hughes Research Laboratories/ Malibu
+    J. A. DALY                  Astropower/Newport Beach
+    GEORGE DeFLORIO             System Development Corp./Santa Monica
+    DEREK H. FENDER             California Institute of Technology
+    LEONARD FRIEDMAN            Space Technology Labs./Redondo Beach
+    JAMES EMMETT GARVEY         ONR/Pasadena
+    THOMAS L. GRETTENBERG       California Institute of Technology
+    HAROLD HAMILTON             Librascope/Glendale
+    JOSEPH HAWKINS              Aeronutronic/Newport Beach
+    CHARLES HENDRIX             Space-General Corp./El Monte
+    R. D. JOSEPH                Astropower/Newport Beach
+    PETER A. KLEYN              Nortronics/Anaheim
+    JOHN KUHN                   Space-General Corp./El Monte
+    FRANK LEHAN                 Space-General Corp./El Monte
+    EDWIN LEWIS                 Librascope/Glendale
+    PETER C. LOCKEMANN          California Institute of Technology
+    GILBERT D. McCANN           California Institute of Technology
+    C. J. MUNCIE                Aeronutronic/Newport Beach
+    C. OVERMIER                 Nortronics/Anaheim
+    RICHARD K. OVERTON          Autonetics/Anaheim
+    DIANE RAMSEY                Astropower/Newport Beach
+    RICHARD REISS               Librascope/Glendale
+    R. I. ŚCIBOR-MARCHOCKI      Nortronics/Anaheim
+    JAMES J. SPILKER            Philco/Palo Alto
+    ROBERT M. STEWART           Space-General Corp./El Monte
+    HENNIG STIEVE               California Institute of Technology
+    RICHARD TEW                 Space-General Corp./El Monte
+    JOHN THORSEN                University of California/Los Angeles
+    RICHARD VINETZ              Librascope/Glendale
+    CHRISTOPH von CAMPENHAUSEN  California Institute of Technology
+    DAVID VOWLES                California Institute of Technology
+    HORST WOLF                  Astropower/Newport Beach
+
+        U.S. GOVERNMENT PRINTING OFFICE: 1966 O—205-502
+
+*** END OF THE PROJECT GUTENBERG EBOOK SELF-ORGANIZING SYSTEMS, 1963 ***
+
+Updated editions will replace the previous one--the old editions will
+be renamed.
+
+Creating the works from print editions not protected by U.S. copyright
+law means that no one owns a United States copyright in these works,
+so the Foundation (and you!) can copy and distribute it in the
+United States without permission and without paying copyright
+royalties. Special rules, set forth in the General Terms of Use part
+of this license, apply to copying and distributing Project
+Gutenberg-tm electronic works to protect the PROJECT GUTENBERG-tm
+concept and trademark. Project Gutenberg is a registered trademark,
+and may not be used if you charge for an eBook, except by following
+the terms of the trademark license, including paying royalties for use
+of the Project Gutenberg trademark. If you do not charge anything for
+copies of this eBook, complying with the trademark license is very
+easy. You may use this eBook for nearly any purpose such as creation
+of derivative works, reports, performances and research. Project
+Gutenberg eBooks may be modified and printed and given away--you may
+do practically ANYTHING in the United States with eBooks not protected
+by U.S. copyright law. Redistribution is subject to the trademark
+license, especially commercial redistribution.
+
+START: FULL LICENSE
+
+THE FULL PROJECT GUTENBERG LICENSE
+PLEASE READ THIS BEFORE YOU DISTRIBUTE OR USE THIS WORK
+
+To protect the Project Gutenberg-tm mission of promoting the free
+distribution of electronic works, by using or distributing this work
+(or any other work associated in any way with the phrase "Project
+Gutenberg"), you agree to comply with all the terms of the Full
+Project Gutenberg-tm License available with this file or online at
+www.gutenberg.org/license.
+
+Section 1. General Terms of Use and Redistributing Project
+Gutenberg-tm electronic works
+
+1.A. By reading or using any part of this Project Gutenberg-tm
+electronic work, you indicate that you have read, understand, agree to
+and accept all the terms of this license and intellectual property
+(trademark/copyright) agreement. If you do not agree to abide by all
+the terms of this agreement, you must cease using and return or
+destroy all copies of Project Gutenberg-tm electronic works in your
+possession. If you paid a fee for obtaining a copy of or access to a
+Project Gutenberg-tm electronic work and you do not agree to be bound
+by the terms of this agreement, you may obtain a refund from the
+person or entity to whom you paid the fee as set forth in paragraph
+1.E.8.
+
+1.B. "Project Gutenberg" is a registered trademark. It may only be
+used on or associated in any way with an electronic work by people who
+agree to be bound by the terms of this agreement. There are a few
+things that you can do with most Project Gutenberg-tm electronic works
+even without complying with the full terms of this agreement. See
+paragraph 1.C below. There are a lot of things you can do with Project
+Gutenberg-tm electronic works if you follow the terms of this
+agreement and help preserve free future access to Project Gutenberg-tm
+electronic works. See paragraph 1.E below.
+
+1.C. The Project Gutenberg Literary Archive Foundation ("the
+Foundation" or PGLAF), owns a compilation copyright in the collection
+of Project Gutenberg-tm electronic works. Nearly all the individual
+works in the collection are in the public domain in the United
+States. If an individual work is unprotected by copyright law in the
+United States and you are located in the United States, we do not
+claim a right to prevent you from copying, distributing, performing,
+displaying or creating derivative works based on the work as long as
+all references to Project Gutenberg are removed. Of course, we hope
+that you will support the Project Gutenberg-tm mission of promoting
+free access to electronic works by freely sharing Project Gutenberg-tm
+works in compliance with the terms of this agreement for keeping the
+Project Gutenberg-tm name associated with the work. You can easily
+comply with the terms of this agreement by keeping this work in the
+same format with its attached full Project Gutenberg-tm License when
+you share it without charge with others.
+
+1.D. The copyright laws of the place where you are located also govern
+what you can do with this work. Copyright laws in most countries are
+in a constant state of change. If you are outside the United States,
+check the laws of your country in addition to the terms of this
+agreement before downloading, copying, displaying, performing,
+distributing or creating derivative works based on this work or any
+other Project Gutenberg-tm work. The Foundation makes no
+representations concerning the copyright status of any work in any
+country other than the United States.
+
+1.E. Unless you have removed all references to Project Gutenberg:
+
+1.E.1. The following sentence, with active links to, or other
+immediate access to, the full Project Gutenberg-tm License must appear
+prominently whenever any copy of a Project Gutenberg-tm work (any work
+on which the phrase "Project Gutenberg" appears, or with which the
+phrase "Project Gutenberg" is associated) is accessed, displayed,
+performed, viewed, copied or distributed:
+
+  This eBook is for the use of anyone anywhere in the United States and
+  most other parts of the world at no cost and with almost no
+  restrictions whatsoever. You may copy it, give it away or re-use it
+  under the terms of the Project Gutenberg License included with this
+  eBook or online at www.gutenberg.org. If you are not located in the
+  United States, you will have to check the laws of the country where
+  you are located before using this eBook.
+
+1.E.2. If an individual Project Gutenberg-tm electronic work is
+derived from texts not protected by U.S. copyright law (does not
+contain a notice indicating that it is posted with permission of the
+copyright holder), the work can be copied and distributed to anyone in
+the United States without paying any fees or charges. If you are
+redistributing or providing access to a work with the phrase "Project
+Gutenberg" associated with or appearing on the work, you must comply
+either with the requirements of paragraphs 1.E.1 through 1.E.7 or
+obtain permission for the use of the work and the Project Gutenberg-tm
+trademark as set forth in paragraphs 1.E.8 or 1.E.9.
+
+1.E.3. If an individual Project Gutenberg-tm electronic work is posted
+with the permission of the copyright holder, your use and distribution
+must comply with both paragraphs 1.E.1 through 1.E.7 and any
+additional terms imposed by the copyright holder. Additional terms
+will be linked to the Project Gutenberg-tm License for all works
+posted with the permission of the copyright holder found at the
+beginning of this work.
+
+1.E.4. Do not unlink or detach or remove the full Project Gutenberg-tm
+License terms from this work, or any files containing a part of this
+work or any other work associated with Project Gutenberg-tm.
+
+1.E.5. Do not copy, display, perform, distribute or redistribute this
+electronic work, or any part of this electronic work, without
+prominently displaying the sentence set forth in paragraph 1.E.1 with
+active links or immediate access to the full terms of the Project
+Gutenberg-tm License.
+
+1.E.6. You may convert to and distribute this work in any binary,
+compressed, marked up, nonproprietary or proprietary form, including
+any word processing or hypertext form. However, if you provide access
+to or distribute copies of a Project Gutenberg-tm work in a format
+other than "Plain Vanilla ASCII" or other format used in the official
+version posted on the official Project Gutenberg-tm website
+(www.gutenberg.org), you must, at no additional cost, fee or expense
+to the user, provide a copy, a means of exporting a copy, or a means
+of obtaining a copy upon request, of the work in its original "Plain
+Vanilla ASCII" or other form. Any alternate format must include the
+full Project Gutenberg-tm License as specified in paragraph 1.E.1.
+
+1.E.7. Do not charge a fee for access to, viewing, displaying,
+performing, copying or distributing any Project Gutenberg-tm works
+unless you comply with paragraph 1.E.8 or 1.E.9.
+
+1.E.8. You may charge a reasonable fee for copies of or providing
+access to or distributing Project Gutenberg-tm electronic works
+provided that:
+
+* You pay a royalty fee of 20% of the gross profits you derive from
+  the use of Project Gutenberg-tm works calculated using the method
+  you already use to calculate your applicable taxes. The fee is owed
+  to the owner of the Project Gutenberg-tm trademark, but he has
+  agreed to donate royalties under this paragraph to the Project
+  Gutenberg Literary Archive Foundation. Royalty payments must be paid
+  within 60 days following each date on which you prepare (or are
+  legally required to prepare) your periodic tax returns. Royalty
+  payments should be clearly marked as such and sent to the Project
+  Gutenberg Literary Archive Foundation at the address specified in
+  Section 4, "Information about donations to the Project Gutenberg
+  Literary Archive Foundation."
+
+* You provide a full refund of any money paid by a user who notifies
+  you in writing (or by e-mail) within 30 days of receipt that s/he
+  does not agree to the terms of the full Project Gutenberg-tm
+  License. You must require such a user to return or destroy all
+  copies of the works possessed in a physical medium and discontinue
+  all use of and all access to other copies of Project Gutenberg-tm
+  works.
+
+* You provide, in accordance with paragraph 1.F.3, a full refund of
+  any money paid for a work or a replacement copy, if a defect in the
+  electronic work is discovered and reported to you within 90 days of
+  receipt of the work.
+
+* You comply with all other terms of this agreement for free
+  distribution of Project Gutenberg-tm works.
+
+1.E.9. If you wish to charge a fee or distribute a Project
+Gutenberg-tm electronic work or group of works on different terms than
+are set forth in this agreement, you must obtain permission in writing
+from the Project Gutenberg Literary Archive Foundation, the manager of
+the Project Gutenberg-tm trademark. Contact the Foundation as set
+forth in Section 3 below.
+
+1.F.
+
+1.F.1. Project Gutenberg volunteers and employees expend considerable
+effort to identify, do copyright research on, transcribe and proofread
+works not protected by U.S. copyright law in creating the Project
+Gutenberg-tm collection. Despite these efforts, Project Gutenberg-tm
+electronic works, and the medium on which they may be stored, may
+contain "Defects," such as, but not limited to, incomplete, inaccurate
+or corrupt data, transcription errors, a copyright or other
+intellectual property infringement, a defective or damaged disk or
+other medium, a computer virus, or computer codes that damage or
+cannot be read by your equipment.
+
+1.F.2. LIMITED WARRANTY, DISCLAIMER OF DAMAGES - Except for the "Right
+of Replacement or Refund" described in paragraph 1.F.3, the Project
+Gutenberg Literary Archive Foundation, the owner of the Project
+Gutenberg-tm trademark, and any other party distributing a Project
+Gutenberg-tm electronic work under this agreement, disclaim all
+liability to you for damages, costs and expenses, including legal
+fees. YOU AGREE THAT YOU HAVE NO REMEDIES FOR NEGLIGENCE, STRICT
+LIABILITY, BREACH OF WARRANTY OR BREACH OF CONTRACT EXCEPT THOSE
+PROVIDED IN PARAGRAPH 1.F.3. YOU AGREE THAT THE FOUNDATION, THE
+TRADEMARK OWNER, AND ANY DISTRIBUTOR UNDER THIS AGREEMENT WILL NOT BE
+LIABLE TO YOU FOR ACTUAL, DIRECT, INDIRECT, CONSEQUENTIAL, PUNITIVE OR
+INCIDENTAL DAMAGES EVEN IF YOU GIVE NOTICE OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+1.F.3. LIMITED RIGHT OF REPLACEMENT OR REFUND - If you discover a
+defect in this electronic work within 90 days of receiving it, you can
+receive a refund of the money (if any) you paid for it by sending a
+written explanation to the person you received the work from. If you
+received the work on a physical medium, you must return the medium
+with your written explanation. The person or entity that provided you
+with the defective work may elect to provide a replacement copy in
+lieu of a refund. If you received the work electronically, the person
+or entity providing it to you may choose to give you a second
+opportunity to receive the work electronically in lieu of a refund. If
+the second copy is also defective, you may demand a refund in writing
+without further opportunities to fix the problem.
+
+1.F.4. Except for the limited right of replacement or refund set forth
+in paragraph 1.F.3, this work is provided to you 'AS-IS', WITH NO
+OTHER WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PURPOSE.
+
+1.F.5. Some states do not allow disclaimers of certain implied
+warranties or the exclusion or limitation of certain types of
+damages. If any disclaimer or limitation set forth in this agreement
+violates the law of the state applicable to this agreement, the
+agreement shall be interpreted to make the maximum disclaimer or
+limitation permitted by the applicable state law. The invalidity or
+unenforceability of any provision of this agreement shall not void the
+remaining provisions.
+
+1.F.6. INDEMNITY - You agree to indemnify and hold the Foundation, the
+trademark owner, any agent or employee of the Foundation, anyone
+providing copies of Project Gutenberg-tm electronic works in
+accordance with this agreement, and any volunteers associated with the
+production, promotion and distribution of Project Gutenberg-tm
+electronic works, harmless from all liability, costs and expenses,
+including legal fees, that arise directly or indirectly from any of
+the following which you do or cause to occur: (a) distribution of this
+or any Project Gutenberg-tm work, (b) alteration, modification, or
+additions or deletions to any Project Gutenberg-tm work, and (c) any
+Defect you cause.
+
+Section 2. Information about the Mission of Project Gutenberg-tm
+
+Project Gutenberg-tm is synonymous with the free distribution of
+electronic works in formats readable by the widest variety of
+computers including obsolete, old, middle-aged and new computers. It
+exists because of the efforts of hundreds of volunteers and donations
+from people in all walks of life.
+
+Volunteers and financial support to provide volunteers with the
+assistance they need are critical to reaching Project Gutenberg-tm's
+goals and ensuring that the Project Gutenberg-tm collection will
+remain freely available for generations to come. In 2001, the Project
+Gutenberg Literary Archive Foundation was created to provide a secure
+and permanent future for Project Gutenberg-tm and future
+generations. To learn more about the Project Gutenberg Literary
+Archive Foundation and how your efforts and donations can help, see
+Sections 3 and 4 and the Foundation information page at
+www.gutenberg.org
+
+Section 3. Information about the Project Gutenberg Literary
+Archive Foundation
+
+The Project Gutenberg Literary Archive Foundation is a non-profit
+501(c)(3) educational corporation organized under the laws of the
+state of Mississippi and granted tax exempt status by the Internal
+Revenue Service. The Foundation's EIN or federal tax identification
+number is 64-6221541. Contributions to the Project Gutenberg Literary
+Archive Foundation are tax deductible to the full extent permitted by
+U.S. federal laws and your state's laws.
+
+The Foundation's business office is located at 809 North 1500 West,
+Salt Lake City, UT 84116, (801) 596-1887. Email contact links and up
+to date contact information can be found at the Foundation's website
+and official page at www.gutenberg.org/contact
+
+Section 4. Information about Donations to the Project Gutenberg
+Literary Archive Foundation
+
+Project Gutenberg-tm depends upon and cannot survive without
+widespread public support and donations to carry out its mission of
+increasing the number of public domain and licensed works that can be
+freely distributed in machine-readable form accessible by the widest
+array of equipment including outdated equipment. Many small donations
+($1 to $5,000) are particularly important to maintaining tax exempt
+status with the IRS.
+
+The Foundation is committed to complying with the laws regulating
+charities and charitable donations in all 50 states of the United
+States. Compliance requirements are not uniform and it takes a
+considerable effort, much paperwork and many fees to meet and keep up
+with these requirements. We do not solicit donations in locations
+where we have not received written confirmation of compliance. To SEND
+DONATIONS or determine the status of compliance for any particular
+state visit www.gutenberg.org/donate
+
+While we cannot and do not solicit contributions from states where we
+have not met the solicitation requirements, we know of no prohibition
+against accepting unsolicited donations from donors in such states who
+approach us with offers to donate.
+
+International donations are gratefully accepted, but we cannot make
+any statements concerning tax treatment of donations received from
+outside the United States. U.S. laws alone swamp our small staff.
+
+Please check the Project Gutenberg web pages for current donation
+methods and addresses. Donations are accepted in a number of other
+ways including checks, online payments and credit card donations. To
+donate, please visit: www.gutenberg.org/donate
+
+Section 5. General Information About Project Gutenberg-tm electronic works
+
+Professor Michael S. Hart was the originator of the Project
+Gutenberg-tm concept of a library of electronic works that could be
+freely shared with anyone. For forty years, he produced and
+distributed Project Gutenberg-tm eBooks with only a loose network of
+volunteer support.
+
+Project Gutenberg-tm eBooks are often created from several printed
+editions, all of which are confirmed as not protected by copyright in
+the U.S. unless a copyright notice is included. Thus, we do not
+necessarily keep eBooks in compliance with any particular paper
+edition.
+
+Most people start at our website which has the main PG search
+facility: www.gutenberg.org
+
+This website includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.

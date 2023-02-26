@@ -12,7 +12,7 @@ import (
 func main() {
 
 	flag.Usage = func() {
-		usage := `usage: dictionaries [OPTIONS] <inputFile> <outputFile>
+		usage := `usage: txt2dict [OPTIONS] <inputFile> <outputFile>
 
 Creates a list of words and frequency counts from an input text file.
 

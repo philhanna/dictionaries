@@ -7,7 +7,7 @@ Utilities for building word lists from sample text.
 
 ## Usage
 ```
-usage: dictionaries [OPTIONS] <inputFile> <outputFile>
+usage: txt2dict [OPTIONS] <inputFile> <outputFile>
 
 Creates a list of words and frequency counts from an input text file.
 

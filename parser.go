@@ -22,7 +22,7 @@ type WordAndCount struct {
 // ---------------------------------------------------------------------
 
 // ParseText reads through the text, parsing individual words, and
-// keeping track of them in a map of word to number of occurences. Then
+// keeping track of them in a map of word to number of occurrences. Then
 // it sorts the map in descending order of the word count and sends it
 // back the channel.
 func ParseText(text string, ch chan *WordAndCount) {

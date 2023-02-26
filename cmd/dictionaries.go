@@ -85,11 +85,25 @@ options are:
 			words = append(words, wac.Word)
 		}
 		sort.Slice(words, func(i, j int) bool {
-			return words[i] < words[j]
+			wordi := words[i]
+			wordj := words[j]
+			if len(wordi) > len(wordj) {
+				return true
+			}
+			if len(wordi) < len(wordj) {
+				return false
+			}
+			if wordi < wordj {
+				return true
+			}
+			if wordi > wordj {
+				return false
+			}
+			return false
 		})
 		for _, word := range words {
 			wordCount++
-			fmt.Fprintf(fpout, "%s\n", word)
+			fmt.Fprintf(fpout, "%s,%d\n", word, len(word))
 		}
 
 	}

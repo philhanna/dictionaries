@@ -1,6 +1,9 @@
 package dictionaries
 
 import (
+	"io"
+	"log"
+	"net/http"
 	"regexp"
 	"sort"
 	"strings"
@@ -25,7 +28,7 @@ type WordAndCount struct {
 // parsing individual words, and keeping track of them in a map of word
 // to number of occurrences. Then it sorts the map in descending order
 // of the word count and yields its items back to the caller.
-func ParseText(text string) <-chan WordAndCount{
+func ParseText(text string) <-chan WordAndCount {
 
 	// Create a map of words to their counts
 	wordMap := make(map[string]int)
@@ -90,4 +93,28 @@ func ParseText(text string) <-chan WordAndCount{
 		}
 	}()
 	return ch
+}
+
+// ParseWebPage is a Python-like generator that downloads the contents of a
+// web page and yields WordAndCount lines.
+func ParseWebPage(url string) <-chan WordAndCount {
+
+	// Get the text from the web page, logging any errors
+
+	res, err := http.Get(url)
+	if err != nil {
+		log.Println(err)
+	}
+	body, err := io.ReadAll(res.Body)
+	res.Body.Close()
+	if res.StatusCode > 299 {
+		log.Printf("Response failed with status code: %d and\nbody: %s\n", res.StatusCode, body)
+	}
+	if err != nil {
+		log.Println(err)
+	}
+	
+	// Now delegate generation to ParseText()
+
+	return ParseText(string(body))
 }

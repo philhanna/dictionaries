@@ -58,11 +58,6 @@ func ParseText(text string) <-chan WordAndCount{
 			}
 		}
 
-		// Only words of length >= 3
-		if len(word) < 3 {
-			continue
-		}
-
 		// Convert to uppercase
 		word = strings.ToUpper(word)
 
@@ -75,15 +70,13 @@ func ParseText(text string) <-chan WordAndCount{
 		}
 	}
 
-	// Make a list of the keys and sort it in order of count descending.
+	// Make a list of the keys and sort it alphabetically
 	keys := []string{}
 	for k := range wordMap {
 		keys = append(keys, k)
 	}
 	sort.Slice(keys, func(i, j int) bool {
-		iCount := wordMap[keys[i]]
-		jCount := wordMap[keys[j]]
-		return iCount > jCount
+		return keys[i] < keys[j]
 	})
 
 	// Send the resulting sorted list up the channel

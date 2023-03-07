@@ -64,14 +64,21 @@ options are:
 	// frequency.
 
 	if debug {
-		wordCount := 0
+		wacs := make([]dict.WordAndCount, 0)
 		for wac := range dict.ParseText(string(text)) {
-			wordCount++
+			wacs = append(wacs, wac)
+		}
+		sort.Slice(wacs, func(i, j int) bool {
+			countI := wacs[i].Count
+			countJ := wacs[j].Count
+			return countI > countJ // Descending order!
+		})
+		for _, wac := range wacs {
 			word := wac.Word
 			count := wac.Count
 			fmt.Fprintf(fpout, "%s,%d\n", word, count)
 		}
-		fmt.Printf("%d words written to the debug %s\n", wordCount, outputFile)
+		fmt.Printf("%d words written to the debug %s\n", len(wacs), outputFile)
 		return
 	}
 

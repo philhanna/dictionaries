@@ -87,25 +87,12 @@ options are:
 		sort.Slice(words, func(i, j int) bool {
 			wordi := words[i]
 			wordj := words[j]
-			if len(wordi) > len(wordj) {
-				return true
-			}
-			if len(wordi) < len(wordj) {
-				return false
-			}
-			if wordi < wordj {
-				return true
-			}
-			if wordi > wordj {
-				return false
-			}
-			return false
+			return wordi < wordj
 		})
 		for _, word := range words {
 			wordCount++
-			fmt.Fprintf(fpout, "%s,%d\n", word, len(word))
+			fmt.Fprintf(fpout, "%s\n", word)
 		}
-
 	}
 	fmt.Printf("%d words written to %s\n", wordCount, outputFile)
 }

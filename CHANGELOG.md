@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.2.0] - 2023-03-07
+Allow parsing of web page directly from URL
+
 ## [v1.1.0] - 2023-02-25
 Added word length and sorted
 
@@ -22,7 +25,8 @@ Initial commit
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/dictionaries/compare/v1.1.0..HEAD
+[Unreleased]: https://github.com/philhanna/dictionaries/compare/v1.2.0..HEAD
+[v1.2.0]: https://github.com/philhanna/dictionaries/compare/v1.1.0..v1.2.0
 [v1.1.0]: https://github.com/philhanna/dictionaries/compare/v1.0.1..v1.1.0
 [v1.0.1]: https://github.com/philhanna/dictionaries/compare/v1.0.0..v1.0.1
 [v1.0.0]: https://github.com/philhanna/dictionaries/compare/v0.1.0..v1.0.0

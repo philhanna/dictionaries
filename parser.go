@@ -21,11 +21,11 @@ type WordAndCount struct {
 // Functions
 // ---------------------------------------------------------------------
 
-// ParseText reads through the text, parsing individual words, and
-// keeping track of them in a map of word to number of occurrences. Then
-// it sorts the map in descending order of the word count and sends it
-// back the channel.
-func ParseText(text string, ch chan *WordAndCount) {
+// ParseText is a Python-like generator that reads through the text,
+// parsing individual words, and keeping track of them in a map of word
+// to number of occurrences. Then it sorts the map in descending order
+// of the word count and yields its items back to the caller.
+func ParseText(text string) <-chan WordAndCount{
 
 	// Create a map of words to their counts
 	wordMap := make(map[string]int)
@@ -87,12 +87,14 @@ func ParseText(text string, ch chan *WordAndCount) {
 	})
 
 	// Send the resulting sorted list up the channel
-	for _, word := range keys {
-		count := wordMap[word]
-		wac := WordAndCount{word, count}
-		ch <- &wac
-	}
-
-	// Signal that we are done with the channel
-	ch <- nil
+	ch := make(chan WordAndCount)
+	go func() {
+		defer close(ch)
+		for _, word := range keys {
+			count := wordMap[word]
+			wac := WordAndCount{word, count}
+			ch <- wac
+		}
+	}()
+	return ch
 }

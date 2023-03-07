@@ -50,11 +50,6 @@ options are:
 		return
 	}
 
-	// Parse the data
-	ch := make(chan *dict.WordAndCount)
-	go dict.ParseText(string(text), ch)
-	defer close(ch)
-
 	// Open the output file
 	fpout, err := os.Create(outputFile)
 	defer fpout.Close()
@@ -63,36 +58,38 @@ options are:
 		return
 	}
 
-	// Read from the parsing channel and write to the output file
-	wordCount := 0
-	switch debug {
-	case true:
-		for wac := range ch {
-			if wac == nil {
-				break
-			}
+	// Read from the generator and write to the output file
+
+	// If the --debug flag was specified, write both the word and its
+	// frequency.
+
+	if debug {
+		wordCount := 0
+		for wac := range dict.ParseText(string(text)) {
 			wordCount++
 			word := wac.Word
 			count := wac.Count
 			fmt.Fprintf(fpout, "%s,%d\n", word, count)
 		}
-	default:
-		words := make([]string, 0)
-		for wac := range ch {
-			if wac == nil {
-				break
-			}
-			words = append(words, wac.Word)
-		}
-		sort.Slice(words, func(i, j int) bool {
-			wordi := words[i]
-			wordj := words[j]
-			return wordi < wordj
-		})
-		for _, word := range words {
-			wordCount++
-			fmt.Fprintf(fpout, "%s\n", word)
-		}
+		fmt.Printf("%d words written to the debug %s\n", wordCount, outputFile)
+		return
+	}
+
+	// Otherwise, write only the words, sorted alphabetically
+	
+	wordCount := 0
+	words := make([]string, 0)
+	for wac := range dict.ParseText(string(text)) {
+		words = append(words, wac.Word)
+	}
+	sort.Slice(words, func(i, j int) bool {
+		wordi := words[i]
+		wordj := words[j]
+		return wordi < wordj
+	})
+	for _, word := range words {
+		wordCount++
+		fmt.Fprintf(fpout, "%s\n", word)
 	}
 	fmt.Printf("%d words written to %s\n", wordCount, outputFile)
 }

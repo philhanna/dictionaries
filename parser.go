@@ -36,9 +36,8 @@ func ParseText(text string) <-chan string {
 	wordMap := make(map[string]int)
 
 	// Make lists of apostrophe words and what to do about them.
-	squashMe := []string{"'s", "'t"}  // Remove the apostrophe
-	deleteMe := []string{"'ll", "'m"} // Chop the suffix
-	cutMe := []string{"'"}            // Remove everything from apostrophe to end
+	squashMe := []string{`'s`, `'t`}  // Remove the apostrophe
+	cutMe := []string{`'`}            // Remove everything from apostrophe to end
 
 	// Form the regular expression
 	re := regexp.MustCompile(`\b[a-zA-Z']+\b`)
@@ -49,11 +48,6 @@ func ParseText(text string) <-chan string {
 			if strings.HasSuffix(word, suffix) {
 				word = word[:len(word)-len(suffix)]
 				word = word + suffix[1:]
-			}
-		}
-		for _, suffix := range deleteMe {
-			if strings.HasSuffix(word, suffix) {
-				word, _ = strings.CutSuffix(word, suffix)
 			}
 		}
 		for _, suffix := range cutMe {

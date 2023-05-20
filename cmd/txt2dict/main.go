@@ -60,34 +60,12 @@ options are:
 
 	// Read from the generator and write to the output file
 
-	// If the --debug flag was specified, write both the word and its
-	// frequency.
-
-	if debug {
-		wacs := make([]dict.WordAndCount, 0)
-		for wac := range dict.ParseText(string(text)) {
-			wacs = append(wacs, wac)
-		}
-		sort.Slice(wacs, func(i, j int) bool {
-			countI := wacs[i].Count
-			countJ := wacs[j].Count
-			return countI > countJ // Descending order!
-		})
-		for _, wac := range wacs {
-			word := wac.Word
-			count := wac.Count
-			fmt.Fprintf(fpout, "%s,%d\n", word, count)
-		}
-		fmt.Printf("%d words written to the debug %s\n", len(wacs), outputFile)
-		return
-	}
-
 	// Otherwise, write only the words, sorted alphabetically
 	
 	wordCount := 0
 	words := make([]string, 0)
-	for wac := range dict.ParseText(string(text)) {
-		words = append(words, wac.Word)
+	for word := range dict.ParseText(string(text)) {
+		words = append(words, word)
 	}
 	sort.Slice(words, func(i, j int) bool {
 		wordi := words[i]

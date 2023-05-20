@@ -17,7 +17,6 @@ positional parameters:
 
 options are:
   -h, --help       Show this help text and exit
-  -d, --debug      Output words and counts for manual inspection
 ```
 ## References
 - [Github repository](https://github.com/philhanna/dictionaries)

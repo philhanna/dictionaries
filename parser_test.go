@@ -2,7 +2,9 @@ package dictionaries
 
 import (
 	"fmt"
+	"log"
 	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -20,8 +22,8 @@ func TestParseText(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			have := make([]string, 0)
-			for wac := range ParseText(tt.input) {
-				have = append(have, wac.Word)
+			for word := range ParseText(tt.input) {
+				have = append(have, word)
 			}
 			assert.Equal(t, tt.want, have)
 		})
@@ -29,11 +31,15 @@ func TestParseText(t *testing.T) {
 }
 
 func TestParseWebPage(t *testing.T) {
-	t.Skip()
 	url := "https://www.cnn.com"
-	fp, _ := os.Create("a.txt")
+	tmp := os.TempDir()
+	filename := filepath.Join(tmp, "parse_web_page.txt")
+	log.Printf("Writing test output to %s\n", filename)
+	fp, err := os.Create(filename)
+	assert.Nil(t, err)
 	defer fp.Close()
-	for wac := range ParseWebPage(url) {
-		fmt.Fprintln(fp, wac)
+	ch := ParseWebPage(url)
+	for word := range ch {
+		fmt.Fprintln(fp, word)
 	}
 }

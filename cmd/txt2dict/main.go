@@ -61,7 +61,7 @@ options are:
 	// Read from the generator and write to the output file
 
 	// Otherwise, write only the words, sorted alphabetically
-	
+
 	wordCount := 0
 	words := make([]string, 0)
 	for word := range dict.ParseText(string(text)) {
